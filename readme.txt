@@ -1,5 +1,5 @@
 === Responsive Pricing Table ===
-Tags: pricing table, wpdarko, shortcode
+Tags: pricing table, wpdarko, shortcode, responsive, price table, pricing, shortcodes
 Requires at least: 3.6
 Tested up to: 4.0
 Stable tag: trunk
