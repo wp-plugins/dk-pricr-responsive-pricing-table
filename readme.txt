@@ -12,8 +12,11 @@ A responsive, easy and elegant way to present your offer to your visitors. Find 
 ### Responsive Pricing Table   
 A responsive, easy and elegant way to present your offer to your visitors. Find support and [shortcodes] explanation on the Plugin’s site. This plugin has been tested with WordPress 4.0.
 
-### Example & Support   
+### Usage   
 Go to [the plugin's page](http://wpdarko.com/darko-tools/dk-pricr/) for information on how to use the shortcodes.
+
+### Support   
+Find help in [our forums](http://wpdarko.com/forums/forum/plugins/dk-pricr/) for this plugin (we’ll answer you fast, promise).
 
 == Installation ==
 ### Installation   
