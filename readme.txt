@@ -10,32 +10,31 @@ A responsive and elegant way to present your offer to your visitors. Create your
 
 == Description ==
 
-### Responsive Pricing Table
 A responsive, easy and elegant way to present your offer to your visitors. Just create a new pricing table (custom type) and copy-paste the shortcode into your posts/pages.
 
-### Usage
+= Usage =
 Go to [the plugin's page](http://wpdarko.com/darko-tools/dk-pricr/) for information on how to use it.
 
-### Support
+= Support =
 Find help in [our forums](http://wpdarko.com/forums/forum/plugins/dk-pricr/) for this plugin (we’ll answer you fast, promise).
 
 == Installation ==
 
-### Installation
+= Installation =
 1. In your WordPress admin panel, go to Plugins > New Plugin
 2. Search for DK Pricr - Responsive Pricing Table and click \"Install now\"
 3. Alternatively, download the plugin and upload the contents of dk_pricr.zip to your plugins directory, which usually is /wp-content/plugins/
 4. Activate the plugin
 
-### Usage
+= Usage =
 Go to [the plugin's page](http://wpdarko.com/darko-tools/dk-pricr/) for information on how to use it.
 
 == Frequently Asked Questions ==
 
-### Example & Support
+= Example & Support =
 Go to [the plugin\'s page](http://wpdarko.com/darko-tools/dk-pricr/) for information on how to use this plugin.
 
-### Where can I get help with this plugin?
+= Where can I get help with this plugin? =
 Find help in [our forums](http://wpdarko.com/forums/forum/plugins/dk-pricr/) for this plugin (we’ll answer you fast, promise).
 
 == Screenshots ==
