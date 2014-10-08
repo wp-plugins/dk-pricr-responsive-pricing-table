@@ -6,7 +6,7 @@ Stable tag: trunk
 License: GPL2
 License URI: http://www.gnu.org/licenses/gpl.html
 
-A responsive, easy and elegant way to present your offer to your visitors. Just create a new pricing table (custom type) and copy-paste the shortcode into your posts/pages. This plugin has been tested with WordPress 4.0.
+A responsive and elegant way to present your offer to your visitors. Create your new pricing table (custom type) and copy-paste the shortcode.
 
 == Description ==
 ### Responsive Pricing Table  
