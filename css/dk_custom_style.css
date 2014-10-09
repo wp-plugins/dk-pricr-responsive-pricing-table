@@ -16,7 +16,6 @@
 .dk_2_plans .dk_plan {width:49%; float:left;}
 .dk_2_plans .dk_plan_0 {margin-right:2%;}
 
-
 .dk_style_basic .dk_plan .dk_title img {margin-right:10px; position:relative; top:4px;}
 .dk_style_basic .dk_plan .dk_title {
 	border-bottom:#111 solid 1px;
@@ -33,8 +32,16 @@
 	border-top-right-radius: 8px;
 }
 
+.dk_style_basic .dk_sm_title .dk_plan .dk_title {font-size:20px;}
+.dk_style_basic .dk_xsm_title .dk_plan .dk_title {font-size:17px;}
+
 .dk_4_plans .dk_plan .dk_title {font-size:17px;}
+.dk_4_plans .dk_sm_title .dk_plan .dk_title {font-size:15px;}
+.dk_4_plans .dk_xsm_title .dk_plan .dk_title {font-size:13px;}
+
 .dk_5_plans .dk_plan .dk_title {font-size:15px;}
+.dk_5_plans .dk_sm_title .dk_plan .dk_title {font-size:13px;}
+.dk_5_plans .dk_xsm_title .dk_plan .dk_title {font-size:12px;}
 
 .dk_style_basic .dk_plan .dk_head .dk_price .dk_currency {
 	position:relative;
@@ -44,7 +51,8 @@
 	line-height:0px;
 }
 
-.dk_5_plans .dk_plan .dk_head .dk_price .dk_currency {top:-25px;}
+.dk_4_plans .dk_plan .dk_head .dk_price .dk_currency {top:-36px;}
+.dk_5_plans .dk_plan .dk_head .dk_price .dk_currency {top:-26px;}
 
 .dk_style_basic .dk_plan .dk_head {
 	border-top:#222 solid 2px;
@@ -68,9 +76,16 @@
 	text-shadow: 1px 2px 7px rgba(0, 0, 0, 0.6);
 }
 
-.dk_4_plans .dk_plan .dk_head .dk_price {font-size:64px;}
+.dk_style_basic .dk_sm_price .dk_plan .dk_head .dk_price {font-size:72px;}
+.dk_style_basic .dk_xsm_price .dk_plan .dk_head .dk_price {font-size:66px;}
 
-.dk_5_plans .dk_plan .dk_head .dk_price {font-size:54px; line-height:80px;}
+.dk_4_plans .dk_plan .dk_head .dk_price {font-size:69px; line-height:80px;}
+.dk_4_plans .dk_sm_price .dk_plan .dk_head .dk_price {font-size:63px; line-height:75px;}
+.dk_4_plans .dk_xsm_price .dk_plan .dk_head .dk_price {font-size:57px; line-height:70px;}
+
+.dk_5_plans .dk_plan .dk_head .dk_price {font-size:59px; line-height:80px;}
+.dk_5_plans .dk_sm_price .dk_plan .dk_head .dk_price {font-size:54px; line-height:80px;}
+.dk_5_plans .dk_xsm_price .dk_plan .dk_head .dk_price {font-size:47px; line-height:80px;}
 
 .dk_style_basic .dk_plan .dk_head .dk_recurrence {
 	font-size:13px;
@@ -81,6 +96,8 @@
 	text-align:center;
 }
 
+.dk_style_basic .dk_sm_recurrence .dk_plan .dk_head .dk_recurrence {font-size:11px; padding:20px 40px 4px;}
+
 .dk_style_basic .dk_plan .dk_head .dk_subtitle {
 	font-size:16px;
 	line-height:20px;
@@ -89,7 +106,16 @@
 	padding:10px 40px 20px;
 }
 
-.dk_5_plans .dk_plan .dk_head .dk_subtitle {font-size:13px; line-height:18px; padding:10px 20px 20px;}
+.dk_style_basic .dk_sm_subtitle .dk_plan .dk_head .dk_subtitle {font-size:14px;}
+.dk_style_basic .dk_xsm_subtitle .dk_plan .dk_head .dk_subtitle {font-size:12px;}
+
+.dk_4_plans  .dk_plan .dk_head .dk_subtitle {font-size:16px; line-height:18px; padding:10px 20px 20px;}
+.dk_4_plans .dk_sm_subtitle .dk_plan .dk_head .dk_subtitle {font-size:14px; line-height:17px;}
+.dk_4_plans .dk_xsm_subtitle .dk_plan .dk_head .dk_subtitle {font-size:13px; line-height:16px;}
+
+.dk_5_plans .dk_plan .dk_head .dk_subtitle {font-size:15px; line-height:18px; padding:10px 20px 20px;}
+.dk_5_plans .dk_sm_subtitle .dk_plan .dk_head .dk_subtitle {font-size:13px; line-height:17px;}
+.dk_5_plans .dk_xsm_subtitle .dk_plan .dk_head .dk_subtitle {font-size:12px; line-height:16px;}
 
 .dk_style_basic .dk_plan .dk_head .dk_description {
 	font-size:14px;
@@ -100,7 +126,13 @@
 	color:grey;
 }
 
-.dk_5_plans .dk_plan .dk_head .dk_description {font-size:11px; line-height:16px; padding:0px 40px 30px;}
+.dk_style_basic .dk_sm_description .dk_plan .dk_head .dk_description {font-size:12px;}
+
+.dk_4_plans  .dk_plan .dk_head .dk_description {font-size:13px; line-height:18px; }
+.dk_4_plans .dk_sm_description .dk_plan .dk_head .dk_description {font-size:12px; line-height:17px;}
+
+.dk_5_plans .dk_plan .dk_head .dk_description {font-size:12px; line-height:18px;}
+.dk_5_plans .dk_sm_description .dk_plan .dk_head .dk_description {font-size:11px; line-height:17px;}
 
 .dk_style_basic .dk_plan .dk_features {
 	padding:20px;
@@ -109,18 +141,27 @@
 }
 
 .dk_style_basic .dk_plan .dk_features .dk_feature {
+	font-size: 16px;
 	padding:6px 16px;
 	border-bottom: 1px dotted lightgrey;
 }
+.dk_style_basic .dk_sm_features .dk_plan .dk_features .dk_feature {font-size: 14px;}
+
+.dk_4_plans .dk_plan .dk_features .dk_feature {
+	padding:6px 10px;
+	font-size: 14px;
+}
+.dk_4_plans .dk_sm_features .dk_plan .dk_features .dk_feature {font-size: 12px;}
 
 .dk_5_plans .dk_plan .dk_features .dk_feature {
 	padding:6px 10px;
-	font-size: 12px;
+	font-size: 13px;
 }
+.dk_5_plans .dk_sm_features .dk_plan .dk_features .dk_feature {font-size: 11px;}
 
 .dk_style_basic .dk_plan .dk_foot {
 	display:block;
-	padding:10px 40px;
+	padding:10px 30px;
 	border-top:whitesmoke solid 2px;
 	-webkit-border-bottom-left-radius: 8px;
 	-webkit-border-bottom-right-radius: 8px;
@@ -130,7 +171,7 @@
 	border-bottom-right-radius: 8px;
 	text-align:center;
 	color: white;
-	font-size: 20px;
+	font-size: 24px;
 	text-decoration:none;
 	font-weight:300;
 	transition:All 500ms ease;
@@ -138,14 +179,17 @@
 	-moz-transition:All 500ms ease;
 	-o-transition:All 500ms ease;
 } 
+.dk_style_basic .dk_sm_button .dk_plan .dk_foot {font-size: 19px;}
 
-.dk_5_plans .dk_plan .dk_foot {padding:4px 30px; font-size:16px;}
+.dk_4_plans .dk_plan .dk_foot {padding:4px 20px; font-size:19px;}
+.dk_4_plans .dk_sm_button .dk_plan .dk_foot {padding:4px 20px; font-size:17px;}
+
+.dk_5_plans .dk_plan .dk_foot {padding:4px 20px; font-size:17px;}
+.dk_5_plans .dk_sm_button .dk_plan .dk_foot {font-size:16px;}
 
 .dk_style_basic .dk_plan .dk_foot:hover {opacity:0.8;}
 
 .dk_style_basic .dk_plan img {box-shadow:0 0 0; border:none;}
-
-img.dk_recommended {float:right;}
 
 .dk_style_basic .dk_recommended_plan {position:relative; top:-10px;}
 
@@ -154,6 +198,14 @@ img.dk_recommended {float:right;}
 .dk_style_basic .dk_recommended_plan .dk_head .dk_price {font-size:98px;}
 .dk_4_plans .dk_recommended_plan .dk_head .dk_price {font-size:74px;}
 .dk_5_plans .dk_recommended_plan .dk_head .dk_price {font-size:67px;}
+
+.dk_style_basic .dk_sm_price .dk_recommended_plan .dk_head .dk_price {font-size:93px;}
+.dk_4_plans .dk_sm_price .dk_recommended_plan .dk_head .dk_price {font-size:70px;}
+.dk_5_plans .dk_sm_price .dk_recommended_plan .dk_head .dk_price {font-size:64px;}
+
+.dk_style_basic .dk_xsm_price .dk_recommended_plan .dk_head .dk_price {font-size:88px;}
+.dk_4_plans .dk_xsm_price .dk_recommended_plan .dk_head .dk_price {font-size:67px;}
+.dk_5_plans .dk_xsm_price .dk_recommended_plan .dk_head .dk_price {font-size:61px;}
 
 .dk_style_basic .dk_recommended_plan .dk_head {
 background: #1e1e1e; /* Old browsers */
@@ -165,9 +217,17 @@ background: -ms-linear-gradient(45deg, #1e1e1e 0%,#191919 100%); /* IE10+ */
 background: linear-gradient(45deg, #1e1e1e 0%,#191919 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1e1e', endColorstr='#191919',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
-.dk_style_basic .dk_recommended_plan .dk_foot {font-size:30px; font-weight:300; padding:20px 0px;}
-.dk_5_plans .dk_recommended_plan .dk_foot {font-size:22px; font-weight:300; padding:12px 0px;}
 
+.dk_style_basic .dk_recommended_plan .dk_foot {font-size:30px; padding:16px 0px;}
+.dk_style_basic .dk_sm_button .dk_recommended_plan .dk_foot {font-size:30px;}
+
+.dk_4_plans .dk_recommended_plan .dk_foot {font-size:22px; font-weight:300; padding:10px 0px;}
+.dk_4_plans .dk_sm_button .dk_recommended_plan .dk_foot {font-size:19px; padding:10px 0px;}
+
+.dk_5_plans .dk_recommended_plan .dk_foot {font-size:20px; font-weight:300; padding:10px 0px;}
+.dk_5_plans .dk_sm_button .dk_recommended_plan .dk_foot {font-size:18px; padding:10px 0px;}
+
+img.dk_recommended {float:right;}
 
 /* TABLETS */
 
@@ -175,16 +235,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1e1e', end
 	.dk_style_basic .dk_plan .dk_head .dk_price {font-size:64px; margin-top:20px;}
 }
 
-
 /* MOBILE SCREENS */
 
 @media only screen and (max-width: 40em) {
 	.dk_style_basic .dk_recommended_plan .dk_foot {font-size:30px; font-weight:300; padding:20px 0px;}
 	.dk_style_basic .dk_plan .dk_head .dk_price {font-size:74px;line-height:100px;}
-	.dk_style_basic .dk_plan .dk_title {
-		font-size:26px;
-		line-height:48px;
-	}
+	.dk_style_basic .dk_plan .dk_title {font-size:26px;line-height:48px;}
 	.dk_style_basic .dk_plan .dk_head .dk_subtitle {
 		font-size:16px;
 		line-height:20px; 
@@ -196,10 +252,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1e1e', end
 		line-height:20px;
 		padding:0px 40px 30px;
 	}
-	.dk_style_basic .dk_plan .dk_features .dk_feature {
-		padding:6px 16px;
-		font-size:14px;
-	}
+	
+	.dk_style_basic .dk_plan .dk_features .dk_feature {padding:6px 16px;font-size:14px;}
 
 	.dk_style_basic .dk_plan .dk_foot {
 		padding:10px 40px;
@@ -207,7 +261,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1e1e', end
 		color: white;
 		font-size: 20px;
 	}
+	
 	.dk_plans .dk_plan {width:96%;}
 	.dk_plans .dk_plan {margin:10px 2% 20px !important;}
-	
 }

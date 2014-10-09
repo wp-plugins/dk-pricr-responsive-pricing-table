@@ -3,17 +3,17 @@
  * Plugin Name: DK Pricr - Responsive Pricing Table
  * Plugin URI: http://wpdarko.com/darko-tools/dk-pricr/
  * Description: A responsive, easy and elegant way to present your offer to your visitors. Just create a new pricing table (custom type) and copy-paste the shortcode into your posts/pages. This plugin has been tested with WordPress 4.0. Make sure you check out all our useful themes and plugins at <a href='http://wpdarko.com/'>WPDarko.com</a>.
- * Version: 2.0
+ * Version: 2.1
  * Author: WP Darko
  * Author URI: http://wpdarko.com/
  * License: GPL2
  */
- 
+
  
 //adds stylesheet
 add_action( 'wp_enqueue_scripts', 'add_pricr_style' );
 function add_pricr_style() {
-	wp_enqueue_style( 'dk_pricr', plugins_url('css/dk_custom_style.css', __FILE__));
+	wp_enqueue_style( 'dk_pricr', plugins_url('css/dk_custom_style.min.css', __FILE__));
 }
 
 add_action( 'init', 'create_dk_pricing_table_type' );
@@ -22,8 +22,8 @@ function create_dk_pricing_table_type() {
   register_post_type( 'dk_pricing_table',
     array(
       'labels' => array(
-        'name' => __( 'Pricing Tables' ),
-        'singular_name' => __( 'Pricing Table' )
+        'name' => __( 'Pricing Tables', 'dkp' ),
+        'singular_name' => __( 'Pricing Table', 'dkp' )
       ),
       'public' => true,
       'has_archive' => false,
@@ -55,7 +55,7 @@ function dkp_metaboxes( array $meta_boxes ) {
 	//price table single metabox (built with CMB)
 	$meta_boxes['tables_group'] = array(
 		'id'         => 'tables_group',
-		'title'      => __( 'Create / Remove your plans', 'cmb' ),
+		'title'      => __( 'Create / Remove your plans', 'dkp' ),
 		'pages'      => array( 'dk_pricing_table', ),
 		'cmb_styles' => true,
 		'fields'     => array(
@@ -63,9 +63,9 @@ function dkp_metaboxes( array $meta_boxes ) {
 				'id'          => $prefix . 'plan_group',
 				'type'        => 'group',
 				'options'     => array(
-					'group_title'   => __( 'Plan {#}', 'cmb' ),
-					'add_button'    => __( 'Add Plan', 'cmb' ),
-					'remove_button' => __( 'Remove Plan', 'cmb' ),
+					'group_title'   => __( 'Plan {#}', 'dkp' ),
+					'add_button'    => __( 'Add Plan', 'dkp' ),
+					'remove_button' => __( 'Remove Plan', 'dkp' ),
 					'sortable'      => true, // beta
 				),
 				'fields'      => array(
@@ -168,11 +168,96 @@ function dkp_metaboxes( array $meta_boxes ) {
 	//price table single metabox (built with CMB)
 	$meta_boxes['dk_settings_group'] = array(
 		'id'         => $prefix . 'settings_group',
-		'title'      => __( 'Pricing table settings', 'cmb' ),
+		'title'      => __( 'Pricing table settings', 'dkp' ),
 		'pages'      => array( 'dk_pricing_table', ),
 		'cmb_styles' => true,
 		'context'	 => 'side',
 		'fields'      => array(
+			array(
+				'name' => '&#8212; Font sizes',
+				'desc' => 'change the size of the font for each elements (just in case some word doesn\'t fit).',
+				'id'   => $prefix . 'font_sizes_desc',
+				'type' => 'title',
+			),
+		    array(
+			    'name'    => 'Title font size',
+			    'id'      => $prefix . 'title_fontsize',
+			    'type'    => 'select',
+			    'options' => array(
+			        'tiny' => __( 'Tiny', 'dkp' ),
+			        'small'   => __( 'Small', 'dkp' ),
+			        'normal'     => __( 'Normal', 'dkp' ),
+			    ),
+			    'default' => 'normal',
+			),
+			array(
+			    'name'    => 'Subtitle font size',
+			    'id'      => $prefix . 'subtitle_fontsize',
+			    'type'    => 'select',
+			    'options' => array(
+			        'tiny' => __( 'Tiny', 'dkp' ),
+			        'small'   => __( 'Small', 'dkp' ),
+			        'normal'     => __( 'Normal', 'dkp' ),
+			    ),
+			    'default' => 'normal',
+			),
+			array(
+			    'name'    => 'Description font size',
+			    'id'      => $prefix . 'description_fontsize',
+			    'type'    => 'select',
+			    'options' => array(
+			        'small'   => __( 'Small', 'dkp' ),
+			        'normal'     => __( 'Normal', 'dkp' ),
+			    ),
+			    'default' => 'normal',
+			),
+			array(
+			    'name'    => 'Price font size',
+			    'id'      => $prefix . 'price_fontsize',
+			    'type'    => 'select',
+			    'options' => array(
+			        'tiny' => __( 'Tiny', 'dkp' ),
+			        'small'   => __( 'Small', 'dkp' ),
+			        'normal'     => __( 'Normal', 'dkp' ),
+			    ),
+			    'default' => 'normal',
+			),
+			array(
+			    'name'    => 'Recurrence font size',
+			    'id'      => $prefix . 'recurrence_fontsize',
+			    'type'    => 'select',
+			    'options' => array(
+			        'small'   => __( 'Small', 'dkp' ),
+			        'normal'     => __( 'Normal', 'dkp' ),
+			    ),
+			    'default' => 'normal',
+			),
+			array(
+			    'name'    => 'Features font size',
+			    'id'      => $prefix . 'features_fontsize',
+			    'type'    => 'select',
+			    'options' => array(
+			        'small'   => __( 'Small', 'dkp' ),
+			        'normal'     => __( 'Normal', 'dkp' ),
+			    ),
+			    'default' => 'normal',
+			),
+			array(
+			    'name'    => 'Button font size',
+			    'id'      => $prefix . 'button_fontsize',
+			    'type'    => 'select',
+			    'options' => array(
+			        'small'   => __( 'Small', 'dkp' ),
+			        'normal'     => __( 'Normal', 'dkp' ),
+			    ),
+			    'default' => 'normal',
+			),
+			array(
+				'name' => 'Other settings',
+				'desc' => 'these are a few settings that you might want to change.',
+				'id'   => $prefix . 'other_settings_desc',
+				'type' => 'title',
+			),
 		    array(
 		    	'name' => 'Change currency',
 		    	'id'   => $prefix . 'currency',
@@ -218,7 +303,6 @@ function add_dk_pricing_table_columns($columns) {
 }
 add_filter('manage_dk_pricing_table_posts_columns' , 'add_dk_pricing_table_columns');
 
-
 //dk_pricing shortcode
 function dkp_sc($atts) {
 	extract(shortcode_atts(array(
@@ -235,8 +319,67 @@ function dkp_sc($atts) {
 		
 	$nb_entries = count($entries);;
 	
-	//opening dk_pricr
-	$output .= '<div id="dk_pricr" class="dk_plans dk_'.$nb_entries.'_plans dk_style_basic">';
+	//get font sizes
+	$title_fontsize = get_post_meta( $post->ID, '_dkp_title_fontsize', true );
+	if ($title_fontsize == 'small') {
+		$title_fs_class = ' dk_sm_title';
+	} else if ($title_fontsize == 'tiny') {
+		$title_fs_class = ' dk_xsm_title';
+	} else {
+		$title_fs_class = '';
+	}
+	
+	$subtitle_fontsize = get_post_meta( $post->ID, '_dkp_subtitle_fontsize', true );
+	if ($subtitle_fontsize == 'small') {
+		$subtitle_fs_class = ' dk_sm_subtitle';
+	} else if ($subtitle_fontsize == 'tiny') {
+		$subtitle_fs_class = ' dk_xsm_subtitle';
+	} else {
+		$subtitle_fs_class = '';
+	}
+	
+	$description_fontsize = get_post_meta( $post->ID, '_dkp_description_fontsize', true );
+	if ($description_fontsize == 'small') {
+		$description_fs_class = ' dk_sm_description';
+	} else {
+		$description_fs_class = '';
+	}
+	
+	$price_fontsize = get_post_meta( $post->ID, '_dkp_price_fontsize', true );
+	if ($price_fontsize == 'small') {
+		$price_fs_class = ' dk_sm_price';
+	} else if ($price_fontsize == 'tiny') {
+		$price_fs_class = ' dk_xsm_price';
+	} else {
+		$price_fs_class = '';
+	}
+	
+	$recurrence_fontsize = get_post_meta( $post->ID, '_dkp_recurrence_fontsize', true );
+	if ($recurrence_fontsize == 'small') {
+		$recurrence_fs_class = ' dk_sm_recurrence';
+	} else {
+		$recurrence_fs_class = '';
+	}
+	
+	$features_fontsize = get_post_meta( $post->ID, '_dkp_features_fontsize', true );
+	if ($features_fontsize == 'small') {
+		$features_fs_class = ' dk_sm_features';
+	} else {
+		$features_fs_class = '';
+	}
+	
+	$button_fontsize = get_post_meta( $post->ID, '_dkp_button_fontsize', true );
+	if ($button_fontsize == 'small') {
+		$button_fs_class = ' dk_sm_button';
+	} else {
+		$button_fs_class = '';
+	}
+	
+	//opening dk_pricr container
+	$output .= '<div id="dk_pricr" class="dk_plans dk_'.$nb_entries .'_plans dk_style_basic">';
+	
+	//opening dk_pricr inner
+	$output .= '<div class="'. $title_fs_class . $subtitle_fs_class . $description_fs_class . $price_fs_class . $recurrence_fs_class . $features_fs_class. $button_fs_class .'">';
 	
 	foreach ($entries as $key => $plans) {
 	
@@ -347,8 +490,7 @@ function dkp_sc($atts) {
 					$output .= '<div style="color:' . $check_color . ';" class="dk_feature dk_feature_' . $key . '-' . $small_key . '">';
 					$output .= $feature;
 					$output .= '</div>';
-				
-					
+							
 				} 
 			}
 			
@@ -378,6 +520,10 @@ function dkp_sc($atts) {
 	
 	}
 	
+	//closing dk_inner
+	$output .= '</div>';
+	
+	//closing dk_container
 	$output .= '</div>';
 	
 	$output .= '<div style="clear:both;"></div>';

@@ -46,6 +46,9 @@ Find help in [our forums](http://wpdarko.com/forums/forum/plugins/dk-pricr/) for
 
 
 == Changelog ==
+= 2.1 =
+* Font sizes can be changed in case some word doesn’t fit
+
 = 2.0 =
 * Use custom post type feature to create pricing tables
 * Plans can be set to Free
