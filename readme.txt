@@ -39,9 +39,10 @@ Find help in [our forums](http://wpdarko.com/forums/forum/plugins/dk-pricr/) for
 
 == Screenshots ==
 1. Displaying the pricing table (front view)
-2. Creating a pricing table 1 (admin view)
-3. Creating a pricing table 2 (admin view)
-4. Finding the shortcode (admin view)
+2. Displaying the pricing table 2 (front view)
+3. Creating a pricing table 1 (admin view)
+4. Creating a pricing table 2 (admin view)
+5. Finding the shortcode (admin view)
 
 
 == Changelog ==
