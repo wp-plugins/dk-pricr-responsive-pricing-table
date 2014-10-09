@@ -38,10 +38,11 @@ Go to [the plugin's page](http://wpdarko.com/darko-tools/dk-pricr/) for informat
 Find help in [our forums](http://wpdarko.com/forums/forum/plugins/dk-pricr/) for this plugin (we’ll answer you fast, promise).
 
 == Screenshots ==
-1. Creating a pricing table 1 (admin view)
-2. Creating a pricing table 2 (admin view)
-3. Finding the shortcode (admin view)
-4. Displaying the pricing table (front view)
+1. Displaying the pricing table (front view)
+2. Creating a pricing table 1 (admin view)
+3. Creating a pricing table 2 (admin view)
+4. Finding the shortcode (admin view)
+
 
 == Changelog ==
 = 2.0 =
