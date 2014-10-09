@@ -22,7 +22,7 @@ Find help in [our forums](http://wpdarko.com/forums/forum/plugins/dk-pricr/) for
 
 = Installation =
 1. In your WordPress admin panel, go to Plugins > New Plugin
-2. Search for DK Pricr - Responsive Pricing Table and click \"Install now\"
+2. Find our Responsive Pricing Table and click Install now
 3. Alternatively, download the plugin and upload the contents of dk_pricr.zip to your plugins directory, which usually is /wp-content/plugins/
 4. Activate the plugin
 
