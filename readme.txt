@@ -32,7 +32,7 @@ Go to [the plugin's page](http://wpdarko.com/darko-tools/dk-pricr/) for informat
 == Frequently Asked Questions ==
 
 = Example & Support =
-Go to [the plugin\'s page](http://wpdarko.com/darko-tools/dk-pricr/) for information on how to use this plugin.
+Go to [the plugin's page](http://wpdarko.com/darko-tools/dk-pricr/) for information on how to use this plugin.
 
 = Where can I get help with this plugin? =
 Find help in [our forums](http://wpdarko.com/forums/forum/plugins/dk-pricr/) for this plugin (we’ll answer you fast, promise).
