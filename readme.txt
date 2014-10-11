@@ -11,6 +11,9 @@ A responsive and elegant way to present your offer to your visitors. Create a ne
 == Description ==
 This plugin creates a new tab in the admin panel which allows you to create pricing tables for your website the easy way. You can quickly add features to your different plans, choose a color (as well as many other options) and display your price table anywhere with a simple shortcode. What you see is what you get, and it’s totally free.
 
+= Rate and review =
+We love to hear from our users, please take the time to rate this plugin and tell us what you think about it!
+
 = Author =
 [WP Darko](http://wpdarko.com/), one more great place to find exclusive WordPress themes & plugins.
 
@@ -25,13 +28,7 @@ This plugin creates a new tab in the admin panel which allows you to create pric
 * Features (as many as you want)
 * Button URL and text
 * Color
-* Font size
-
-= This is a free plugin =
-No PRO version, it’s all here and it’s FREE.
-
-= Rate and review =
-We love to hear from our users, please take the time to rate this plugin and tell us what you think about it! 
+* Font size 
 
 = Usage =
 Go to [the plugin's page](http://wpdarko.com/darko-tools/dk-pricr/) if you need more information on how to use this plugin.
