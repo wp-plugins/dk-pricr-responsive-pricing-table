@@ -15,7 +15,7 @@ This plugin creates a new tab in the admin panel which allows you to create pric
 We love to hear from our users, please take the time to rate this plugin and tell us what you think about it!
 
 = Author =
-[WP Darko](http://wpdarko.com/), one more great place to find exclusive WordPress themes & plugins.
+[WP Darko](http://wpdarko.com/) is one more great place to find exclusive WordPress themes & plugins.
 
 
 = Available fields/options =
