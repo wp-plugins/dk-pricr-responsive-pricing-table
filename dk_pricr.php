@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: DK Pricr - Responsive Pricing Table
+ * Plugin Name: Responsive Pricing Table
  * Plugin URI: http://wpdarko.com/darko-tools/dk-pricr/
  * Description: A responsive, easy and elegant way to present your offer to your visitors. Just create a new pricing table (custom type) and copy-paste the shortcode into your posts/pages. This plugin has been tested with WordPress 4.0. Make sure you check out all our useful themes and plugins at <a href='http://wpdarko.com/'>WPDarko.com</a>.
  * Version: 2.1
