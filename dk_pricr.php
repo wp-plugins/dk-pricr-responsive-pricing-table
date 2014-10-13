@@ -13,7 +13,7 @@
 //adds stylesheet
 add_action( 'wp_enqueue_scripts', 'add_pricr_style' );
 function add_pricr_style() {
-	wp_enqueue_style( 'dk_pricr', plugins_url('css/dk_custom_style.min.css', __FILE__));
+	wp_enqueue_style( 'dk_pricr', plugins_url('css/dk_pricr_custom_style.min.css', __FILE__));
 }
 
 add_action( 'init', 'create_dk_pricing_table_type' );
