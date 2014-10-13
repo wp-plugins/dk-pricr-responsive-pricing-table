@@ -31,29 +31,29 @@ We love to hear from our users, please take the time to rate this plugin and tel
 * Font size 
 
 = Usage =
-Go to [the plugin's page](http://wpdarko.com/darko-tools/dk-pricr/) if you need more information on how to use this plugin.
+Go to [the plugin's page](http://wpdarko.com/darko-tools/responsive-pricing-table/) if you need more information on how to use this plugin.
 
 = Support =
-Find help in [our forums](http://wpdarko.com/forums/forum/plugins/dk-pricr/) for this plugin (we’ll answer you fast, promise).
+Find help in [our forums](http://wpdarko.com/forums/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
 
 == Installation ==
 
 = Installation =
 1. In your WordPress admin panel, go to Plugins > New Plugin
 2. Find our Responsive Pricing Table plugin by WP Darko and click Install now
-3. Alternatively, download the plugin and upload the contents of dk-pricr-responsive-pricing-table.zip to your plugins directory, which usually is /wp-content/plugins/
+3. Alternatively, download the plugin and upload the contents of responsive-pricing-table.zip to your plugins directory, which usually is /wp-content/plugins/
 4. Activate the plugin
 
 = Usage =
-Go to [the plugin's page](http://wpdarko.com/darko-tools/dk-pricr/) for information on how to use it.
+Go to [the plugin's page](http://wpdarko.com/darko-tools/responsive-pricing-table/) for information on how to use it.
 
 == Frequently Asked Questions ==
 
 = Example & Support =
-Go to [the plugin's page](http://wpdarko.com/darko-tools/dk-pricr/) for information on how to use this plugin.
+Go to [the plugin's page](http://wpdarko.com/darko-tools/responsive-pricing-table/) for information on how to use this plugin.
 
 = Where can I get help with this plugin? =
-Find help in [our forums](http://wpdarko.com/forums/forum/plugins/dk-pricr/) for this plugin (we’ll answer you fast, promise).
+Find help in [our forums](http://wpdarko.com/forums/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
 
 == Screenshots ==
 1. Displaying the pricing table (front view)
