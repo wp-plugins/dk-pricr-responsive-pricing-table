@@ -27,6 +27,7 @@ We love to hear from our users, please take the time to rate this plugin and tel
 * Recurrence (“one-time fee”, “per month”)
 * Features (as many as you want)
 * Button URL and text
+* Links behaviour
 * Color
 * Font size 
 
@@ -64,6 +65,9 @@ Find help in [our forums](http://wpdarko.com/forums/forum/plugins/responsive-pri
 
 
 == Changelog ==
+= 2.2 =
+* Links behavior can be changed 
+
 = 2.1 =
 * Font sizes can be changed in case some word doesn’t fit
 

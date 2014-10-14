@@ -3,7 +3,7 @@
  * Plugin Name: Responsive Pricing Table
  * Plugin URI: http://wpdarko.com/darko-tools/responsive-pricing-table/
  * Description: A responsive, easy and elegant way to present your offer to your visitors. Just create a new pricing table (custom type) and copy-paste the shortcode into your posts/pages. This plugin has been tested with WordPress 4.0. Make sure you check out all our useful themes and plugins at <a href='http://wpdarko.com/'>WPDarko.com</a>.
- * Version: 2.1
+ * Version: 2.2
  * Author: WP Darko
  * Author URI: http://wpdarko.com/
  * License: GPL2
@@ -174,8 +174,28 @@ function dkp_metaboxes( array $meta_boxes ) {
 		'context'	 => 'side',
 		'fields'      => array(
 			array(
+				'name' => '&#8212; General settings',
+				'id'   => $prefix . 'other_settings_desc',
+				'type' => 'title',
+			),
+		    array(
+		    	'name' => 'Change currency',
+		    	'id'   => $prefix . 'currency',
+		    	'type' => 'text',
+		    	'default' => '$',
+		    ),
+		    array(
+				'name' => 'Links behavior',
+				'id'   => $prefix . 'open_newwindow',
+				'type' => 'select',
+			    'options' => array(
+			    	'currentwindow'   => __( 'Open in current window', 'dkp' ),
+			        'newwindow' => __( 'Open in new window/tab', 'dkp' ),
+			    ),
+			    'default' => 'currentwindow',
+			),
+			array(
 				'name' => '&#8212; Font sizes',
-				'desc' => 'change the size of the font for each elements (just in case some word doesn\'t fit).',
 				'id'   => $prefix . 'font_sizes_desc',
 				'type' => 'title',
 			),
@@ -252,18 +272,6 @@ function dkp_metaboxes( array $meta_boxes ) {
 			    ),
 			    'default' => 'normal',
 			),
-			array(
-				'name' => 'Other settings',
-				'desc' => 'these are a few settings that you might want to change.',
-				'id'   => $prefix . 'other_settings_desc',
-				'type' => 'title',
-			),
-		    array(
-		    	'name' => 'Change currency',
-		    	'id'   => $prefix . 'currency',
-		    	'type' => 'text',
-		    	'default' => '$',
-		    ),
 		),
 	);
 
@@ -507,8 +515,16 @@ function dkp_sc($atts) {
 			$btn_link = 'http://#';
 		}
 		
+		//link option
+		$newcurrentwindow = get_post_meta( $post->ID, '_dkp_open_newwindow', true );
+		if ($newcurrentwindow == 'newwindow'){
+			$link_behavior = 'target="_blank"';
+		} else {
+			$link_behavior = 'target="_self"';
+		}
+		
 		//foot
-		$output .= '<a href="' . $btn_link . '" style="background:' . $plans['_dkp_color'] . '" class="dk_foot dk_foot_' . $key . '">';
+		$output .= '<a '. $link_behavior .' href="' . $btn_link . '" style="background:' . $plans['_dkp_color'] . '" class="dk_foot dk_foot_' . $key . '">';
 		
 			//closing foot
 			$output .= $btn_text;
