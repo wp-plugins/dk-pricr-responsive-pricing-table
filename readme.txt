@@ -65,6 +65,9 @@ Find help in [our forums](http://wpdarko.com/forums/forum/plugins/responsive-pri
 
 
 == Changelog ==
+= 2.3 =
+* Modified CSS - fits better on small-width websites (or websites with sidebars) 
+
 = 2.2 =
 * Links behavior can be changed 
 
