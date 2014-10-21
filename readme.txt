@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 A responsive and elegant way to present your offer to your visitors. Create a new pricing table now and copy-paste the shortcode anywhere.
 
 == Description ==
-This plugin creates a new tab in the admin panel which allows you to create pricing tables for your website the easy way. You can quickly add features to your different plans, choose a color (as well as many other options) and display your price table anywhere with a simple shortcode. What you see is what you get, and it’s totally free.
+This plugin adds a “Pricing Tables” tab in the admin panel which allows you to create pricing tables for your website the easy way. You can quickly add features to your different plans, choose a color (as well as many other options) and display your price table anywhere with a simple shortcode. What you see is what you get, and it’s totally free.
 
 = Rate and review =
 We love to hear from our users, please take the time to rate this plugin and tell us what you think about it!
