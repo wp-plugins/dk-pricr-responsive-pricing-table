@@ -11,7 +11,7 @@ A responsive and elegant way to present your offer to your visitors. Create a ne
 == Description ==
 This plugin creates a new tab in the admin panel which allows you to create pricing tables for your website the easy way. You can quickly add features to your different plans, choose a color (as well as many other options) and display your price table anywhere with a simple shortcode. What you see is what you get, and it’s totally free.
 
-= FREE vs PRO version =
+= This FREE version is not limited =
 The free version of the Responsive Pricing Table plugin is **not limited** and does not contain any ad. The **PRO version** gives you access to two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features.
 
 [Check out the PRO version](http://wpdarko.com/darko-tools/responsive-pricing-table-pro/)
