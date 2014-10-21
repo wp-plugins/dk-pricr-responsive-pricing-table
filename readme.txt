@@ -11,13 +11,11 @@ A responsive and elegant way to present your offer to your visitors. Create a ne
 == Description ==
 This plugin creates a new tab in the admin panel which allows you to create pricing tables for your website the easy way. You can quickly add features to your different plans, choose a color (as well as many other options) and display your price table anywhere with a simple shortcode. What you see is what you get, and it’s totally free.
 
-[Check out the PRO version](http://wpdarko.com/darko-tools/responsive-pricing-table-pro/)
-
 = Rate and review =
 We love to hear from our users, please take the time to rate this plugin and tell us what you think about it!
 
-= Free vs PRO version =
-The free version of the Responsive Pricing Table plugin is **not limited** and does not contain any ad. The **PRO version** gives you access to two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features.
+= This free version is not limited =
+The free version of the Responsive Pricing Table plugin is **not limited** and does not contain any ad (what you see is what you get). The **PRO version** gives you access to two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features.
 
 [Check out the PRO version](http://wpdarko.com/darko-tools/responsive-pricing-table-pro/)
 
@@ -62,7 +60,7 @@ Go to [the plugin's page](http://wpdarko.com/darko-tools/responsive-pricing-tabl
 = Where can I get help with this plugin? =
 Find help in [our forums](http://wpdarko.com/forums/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
 
-= Free vs PRO version =
+= Free vs PRO version? =
 The free version of the Responsive Pricing Table plugin is **not limited** and does not contain any ad. The **PRO version** gives you access to two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features.
 
 [Check out the PRO version](http://wpdarko.com/darko-tools/responsive-pricing-table-pro/)
