@@ -3,74 +3,73 @@
  * Plugin Name: Responsive Pricing Table
  * Plugin URI: http://wpdarko.com/darko-tools/responsive-pricing-table/
  * Description: A responsive, easy and elegant way to present your offer to your visitors. Just create a new pricing table (custom type) and copy-paste the shortcode into your posts/pages. Find support and information on the <a href="http://wpdarko.com/darko-tools/responsive-pricing-table/">plugin's page</a>. This free version is NOT limited and does not contain any ad. Check out the <a href='http://wpdarko.com/darko-tools/responsive-pricing-table-pro/'>PRO version</a> for more great features.
- * Version: 2.3
+ * Version: 3.0
  * Author: WP Darko
  * Author URI: http://wpdarko.com
  * License: GPL2
  */
 
- 
 //adds stylesheet
-add_action( 'wp_enqueue_scripts', 'add_pricr_style' );
-function add_pricr_style() {
-	wp_enqueue_style( 'dk_pricr', plugins_url('css/dk_pricr_custom_style.min.css', __FILE__));
+add_action( 'wp_enqueue_scripts', 'add_rpt_style' );
+function add_rpt_style() {
+	wp_enqueue_style( 'rpt', plugins_url('css/rpt_custom_style.min.css', __FILE__));
 }
 
-add_action( 'init', 'create_dk_pricing_table_type' );
+add_action( 'init', 'create_rpt_pricing_table_type' );
 
-function create_dk_pricing_table_type() {
-  register_post_type( 'dk_pricing_table',
+function create_rpt_pricing_table_type() {
+  register_post_type( 'rpt_pricing_table',
     array(
       'labels' => array(
-        'name' => __( 'Pricing Tables', 'dkp' ),
-        'singular_name' => __( 'Pricing Table', 'dkp' )
+        'name' => 'Pricing Tables',
+        'singular_name' => 'Pricing Table'
       ),
       'public' => true,
       'has_archive' => false,
       'hierarchical' => false,
       'supports'           => array( 'title' ),
-      'menu_icon'    => plugins_url('img/dk_icon.png', __FILE__),
+      'menu_icon'    => 'dashicons-plus',
     )
   );
 }
 
 /*
  * Include and setup custom metaboxes and fields.
- * @category DK Pricr
+ * @category Responsive Pricing Table
  * @package  Metaboxes
  */
 
-add_filter( 'cmb_meta_boxes', 'dkp_metaboxes' );
+add_filter( 'cmb_meta_boxes', 'rpt_metaboxes' );
 
 /*
  * Define the metabox and field configurations.
  * @param  array $meta_boxes
  * @return array
  */
-function dkp_metaboxes( array $meta_boxes ) {
+function rpt_metaboxes( array $meta_boxes ) {
 
 	//hiding fields from custom fields list
-	$prefix = '_dkp_';
+	$prefix = '_rpt_';
 
 	//price table single metabox (built with CMB)
-	$meta_boxes['tables_group'] = array(
+	$meta_boxes['rpt_tables_group'] = array(
 		'id'         => 'tables_group',
-		'title'      => __( 'Create / Remove your plans', 'dkp' ),
-		'pages'      => array( 'dk_pricing_table', ),
+		'title'      => 'Create / Remove your plans',
+		'pages'      => array( 'rpt_pricing_table', ),
 		'cmb_styles' => true,
 		'fields'     => array(
 			array(
 				'id'          => $prefix . 'plan_group',
 				'type'        => 'group',
 				'options'     => array(
-					'group_title'   => __( 'Plan {#}', 'dkp' ),
-					'add_button'    => __( 'Add Plan', 'dkp' ),
-					'remove_button' => __( 'Remove Plan', 'dkp' ),
-					'sortable'      => true, // beta
+					'group_title'   => 'Plan {#}',
+					'add_button'    => 'Add Plan',
+					'remove_button' => 'Remove Plan',
+					'sortable'      => true,
 				),
 				'fields'      => array(
 					array(
-						'name' => '&#8212; Plan header',
+						'name' => 'Plan header',
 						'id'   => $prefix . 'header_desc',
 						'type' => 'title',
 					),
@@ -110,47 +109,57 @@ function dkp_metaboxes( array $meta_boxes ) {
 					),
 					array(
 						'name' => 'Recurrence',
-						'desc' => 'eg. "per month", "one time fee"',
 						'id'   => $prefix . 'recurrence',
 						'type' => 'text',
+                        'attributes'  => array(
+                            'placeholder' => 'eg. per month, one time fee',
+                        ),
 					),	
 					array(
 						'name' => 'Small icon',
-						'desc' => 'recommended size: 30 x 30',
 						'id'   => $prefix . 'icon',
 						'type' => 'file',
+                        'attributes'  => array(
+                            'placeholder' => 'recommended size: 30 x 30',
+                        ),
 					),
 					array(
-					'name' => '&#8212; Plan feature',
-					'desc' => '<div style="line-height:24px; padding:10px; padding-left:30px; border-left:grey solid 4px;"><span style="font-style:normal; color:black;"><span style="color:black;"><strong>&#60;strong&#62;</strong></span> tags allowed for bold text.<br/><span style="color:#bbbbbb; font-size:12px;">eg. "&#60;strong&#62;5&#60;/strong&#62; products in the store".</span><br/>Use prefix "<span style="color:black;"><strong>-n</strong></span>" if the feature isn\'t available in this plan.<br/><span style="color:#bbbbbb; font-size:12px;">eg. "-n Custom domain name."</span></span></div>',
+					'name' => 'Plan features',
+					'desc' => '<div style="margin-top: 20px;line-height:24px; padding:10px; padding-left:30px; border-left:grey solid 4px;"><span style="font-style:normal; color:black;"><span style="color:black;"><strong>&#60;strong&#62;</strong></span> tags allowed for bold text.<br/><span style="color:#bbbbbb; font-size:12px;">eg. "&#60;strong&#62;5&#60;/strong&#62; products in the store".</span><br/>Use prefix "<span style="color:black;"><strong>-n</strong></span>" if the feature isn\'t available in this plan.<br/><span style="color:#bbbbbb; font-size:12px;">eg. "-n Custom domain name."</span></span></div>',
 					'id'   => $prefix . 'features_desc',
 					'type' => 'title',
 					),
 					array(
 					    'name' => 'Features',
-					    'desc' => 'one per line',
 					    'id' => $prefix . 'features',
 					    'type' => 'textarea',
+                        'attributes'  => array(
+                            'placeholder' => 'one per line',
+                        ),
 					),
 					array(
-						'name' => '&#8212; Plan button',
+						'name' => 'Plan button',
 						'id'   => $prefix . 'plan_button_desc',
 						'type' => 'title',
 					),
 					array(
 						'name' => 'Button text',
-						'desc' => 'eg. "Sign up", "Buy"',
 						'id'   => $prefix . 'btn_text',
 						'type' => 'text',
+                        'attributes'  => array(
+                            'placeholder' => 'eg. Sign up, Buy',
+                        ),
 					),	
 					array(
 						'name' => 'Button link',
-						'desc' => 'eg. "http://anything.com"',
 						'id'   => $prefix . 'btn_link',
 						'type' => 'text',
+                        'attributes'  => array(
+                            'placeholder' => 'eg. http://anything.com',
+                        ),
 					),
 					array(
-						'name' => '&#8212; Plan styling',
+						'name' => 'Plan styling',
 						'id'   => $prefix . 'styling_desc',
 						'type' => 'title',
 					),
@@ -166,15 +175,15 @@ function dkp_metaboxes( array $meta_boxes ) {
 	);
 	
 	//price table single metabox (built with CMB)
-	$meta_boxes['dk_settings_group'] = array(
+	$meta_boxes['rpt_settings_group'] = array(
 		'id'         => $prefix . 'settings_group',
-		'title'      => __( 'Pricing table settings', 'dkp' ),
-		'pages'      => array( 'dk_pricing_table', ),
+		'title'      => 'Pricing table settings',
+		'pages'      => array( 'rpt_pricing_table', ),
 		'cmb_styles' => true,
 		'context'	 => 'side',
 		'fields'      => array(
 			array(
-				'name' => '&#8212; General settings',
+				'name' => 'General settings',
 				'id'   => $prefix . 'other_settings_desc',
 				'type' => 'title',
 			),
@@ -189,13 +198,13 @@ function dkp_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'open_newwindow',
 				'type' => 'select',
 			    'options' => array(
-			    	'currentwindow'   => __( 'Open in current window', 'dkp' ),
-			        'newwindow' => __( 'Open in new window/tab', 'dkp' ),
+			    	'currentwindow'   => 'Open in current window',
+			        'newwindow' => 'Open in new window/tab',
 			    ),
 			    'default' => 'currentwindow',
 			),
 			array(
-				'name' => '&#8212; Font sizes',
+				'name' => 'Font sizes',
 				'id'   => $prefix . 'font_sizes_desc',
 				'type' => 'title',
 			),
@@ -204,9 +213,9 @@ function dkp_metaboxes( array $meta_boxes ) {
 			    'id'      => $prefix . 'title_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
-			        'tiny' => __( 'Tiny', 'dkp' ),
-			        'small'   => __( 'Small', 'dkp' ),
-			        'normal'     => __( 'Normal', 'dkp' ),
+			        'tiny' => 'Tiny',
+			        'small'   => 'Small',
+			        'normal'     => 'Normal',
 			    ),
 			    'default' => 'normal',
 			),
@@ -215,9 +224,9 @@ function dkp_metaboxes( array $meta_boxes ) {
 			    'id'      => $prefix . 'subtitle_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
-			        'tiny' => __( 'Tiny', 'dkp' ),
-			        'small'   => __( 'Small', 'dkp' ),
-			        'normal'     => __( 'Normal', 'dkp' ),
+			        'tiny' => 'Tiny',
+			        'small'   => 'Small',
+			        'normal'     => 'Normal',
 			    ),
 			    'default' => 'normal',
 			),
@@ -226,8 +235,8 @@ function dkp_metaboxes( array $meta_boxes ) {
 			    'id'      => $prefix . 'description_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
-			        'small'   => __( 'Small', 'dkp' ),
-			        'normal'     => __( 'Normal', 'dkp' ),
+			        'small'   => 'Small',
+			        'normal'     => 'Normal',
 			    ),
 			    'default' => 'normal',
 			),
@@ -236,9 +245,9 @@ function dkp_metaboxes( array $meta_boxes ) {
 			    'id'      => $prefix . 'price_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
-			        'tiny' => __( 'Tiny', 'dkp' ),
-			        'small'   => __( 'Small', 'dkp' ),
-			        'normal'     => __( 'Normal', 'dkp' ),
+			        'tiny' => 'Tiny',
+			        'small'   => 'Small',
+			        'normal'     => 'Normal',
 			    ),
 			    'default' => 'normal',
 			),
@@ -247,8 +256,8 @@ function dkp_metaboxes( array $meta_boxes ) {
 			    'id'      => $prefix . 'recurrence_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
-			        'small'   => __( 'Small', 'dkp' ),
-			        'normal'     => __( 'Normal', 'dkp' ),
+			        'small'   => 'Small',
+			        'normal'     => 'Normal',
 			    ),
 			    'default' => 'normal',
 			),
@@ -257,8 +266,8 @@ function dkp_metaboxes( array $meta_boxes ) {
 			    'id'      => $prefix . 'features_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
-			        'small'   => __( 'Small', 'dkp' ),
-			        'normal'     => __( 'Normal', 'dkp' ),
+			        'small'   => 'Small',
+			        'normal'     => 'Normal',
 			    ),
 			    'default' => 'normal',
 			),
@@ -267,8 +276,8 @@ function dkp_metaboxes( array $meta_boxes ) {
 			    'id'      => $prefix . 'button_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
-			        'small'   => __( 'Small', 'dkp' ),
-			        'normal'     => __( 'Normal', 'dkp' ),
+			        'small'   => 'Small',
+			        'normal'     => 'Normal',
 			    ),
 			    'default' => 'normal',
 			),
@@ -278,17 +287,17 @@ function dkp_metaboxes( array $meta_boxes ) {
 	return $meta_boxes;
 }
 
-add_action( 'init', 'dkp_initialize_cmb_meta_boxes', 9999 );
+add_action( 'init', 'rpt_initialize_cmb_meta_boxes', 9999 );
 
 //metabox class
-function dkp_initialize_cmb_meta_boxes() {
+function rpt_initialize_cmb_meta_boxes() {
 
 	if ( ! class_exists( 'cmb_Meta_Box' ) )
 		require_once 'cmb/init.php';
 }
 
 //shortcode columns
-add_action( 'manage_dk_pricing_table_posts_custom_column' , 'custom_columns', 10, 2 );
+add_action( 'manage_rpt_pricing_table_posts_custom_column' , 'custom_columns', 10, 2 );
 
 function custom_columns( $column, $post_id ) {
     switch ( $column ) {
@@ -298,105 +307,105 @@ function custom_columns( $column, $post_id ) {
 		$slug = $post->post_name;
    
     
-    	    $shortcode = '<span style="font-size:18px; line-height:40px;">[dk_pricing name="'.$slug.'"]</strong>';
+    	    $shortcode = '<span style="border: solid 3px lightgray; background:white; padding:7px; font-size:17px; line-height:40px;">[rpt name="'.$slug.'"]</strong>';
 	    echo $shortcode; 
 	    break;
     }
 }
 
-function add_dk_pricing_table_columns($columns) {
+function add_rpt_pricing_table_columns($columns) {
     return array_merge($columns, 
               array('shortcode' => __('Shortcode'),
                     ));
 }
-add_filter('manage_dk_pricing_table_posts_columns' , 'add_dk_pricing_table_columns');
+add_filter('manage_rpt_pricing_table_posts_columns' , 'add_rpt_pricing_table_columns');
 
-//dk_pricing shortcode
-function dkp_sc($atts) {
+//rpt shortcode
+function rpt_sc($atts) {
 	extract(shortcode_atts(array(
 		"name" => ''
 	), $atts));
 	
 	$output = '';
 	
-  query_posts( array( 'post_type' => 'dk_pricing_table', 'name' => $name, ) );
+  query_posts( array( 'post_type' => 'rpt_pricing_table', 'name' => $name, ) );
   if ( have_posts() ) : while ( have_posts() ) : the_post();
 
     global $post;
-	$entries = get_post_meta( $post->ID, '_dkp_plan_group', true );
+	$entries = get_post_meta( $post->ID, '_rpt_plan_group', true );
 		
 	$nb_entries = count($entries);;
 	
 	//get font sizes
-	$title_fontsize = get_post_meta( $post->ID, '_dkp_title_fontsize', true );
+	$title_fontsize = get_post_meta( $post->ID, '_rpt_title_fontsize', true );
 	if ($title_fontsize == 'small') {
-		$title_fs_class = ' dk_sm_title';
+		$title_fs_class = ' rpt_sm_title';
 	} else if ($title_fontsize == 'tiny') {
-		$title_fs_class = ' dk_xsm_title';
+		$title_fs_class = ' rpt_xsm_title';
 	} else {
 		$title_fs_class = '';
 	}
 	
-	$subtitle_fontsize = get_post_meta( $post->ID, '_dkp_subtitle_fontsize', true );
+	$subtitle_fontsize = get_post_meta( $post->ID, '_rpt_subtitle_fontsize', true );
 	if ($subtitle_fontsize == 'small') {
-		$subtitle_fs_class = ' dk_sm_subtitle';
+		$subtitle_fs_class = ' rpt_sm_subtitle';
 	} else if ($subtitle_fontsize == 'tiny') {
-		$subtitle_fs_class = ' dk_xsm_subtitle';
+		$subtitle_fs_class = ' rpt_xsm_subtitle';
 	} else {
 		$subtitle_fs_class = '';
 	}
 	
-	$description_fontsize = get_post_meta( $post->ID, '_dkp_description_fontsize', true );
+	$description_fontsize = get_post_meta( $post->ID, '_rpt_description_fontsize', true );
 	if ($description_fontsize == 'small') {
-		$description_fs_class = ' dk_sm_description';
+		$description_fs_class = ' rpt_sm_description';
 	} else {
 		$description_fs_class = '';
 	}
 	
-	$price_fontsize = get_post_meta( $post->ID, '_dkp_price_fontsize', true );
+	$price_fontsize = get_post_meta( $post->ID, '_rpt_price_fontsize', true );
 	if ($price_fontsize == 'small') {
-		$price_fs_class = ' dk_sm_price';
+		$price_fs_class = ' rpt_sm_price';
 	} else if ($price_fontsize == 'tiny') {
-		$price_fs_class = ' dk_xsm_price';
+		$price_fs_class = ' rpt_xsm_price';
 	} else {
 		$price_fs_class = '';
 	}
 	
-	$recurrence_fontsize = get_post_meta( $post->ID, '_dkp_recurrence_fontsize', true );
+	$recurrence_fontsize = get_post_meta( $post->ID, '_rpt_recurrence_fontsize', true );
 	if ($recurrence_fontsize == 'small') {
-		$recurrence_fs_class = ' dk_sm_recurrence';
+		$recurrence_fs_class = ' rpt_sm_recurrence';
 	} else {
 		$recurrence_fs_class = '';
 	}
 	
-	$features_fontsize = get_post_meta( $post->ID, '_dkp_features_fontsize', true );
+	$features_fontsize = get_post_meta( $post->ID, '_rpt_features_fontsize', true );
 	if ($features_fontsize == 'small') {
-		$features_fs_class = ' dk_sm_features';
+		$features_fs_class = ' rpt_sm_features';
 	} else {
 		$features_fs_class = '';
 	}
 	
-	$button_fontsize = get_post_meta( $post->ID, '_dkp_button_fontsize', true );
+	$button_fontsize = get_post_meta( $post->ID, '_rpt_button_fontsize', true );
 	if ($button_fontsize == 'small') {
-		$button_fs_class = ' dk_sm_button';
+		$button_fs_class = ' rpt_sm_button';
 	} else {
 		$button_fs_class = '';
 	}
 	
-	//opening dk_pricr container
-	$output .= '<div id="dk_pricr" class="dk_plans dk_'.$nb_entries .'_plans dk_style_basic">';
+	//opening rpt_pricr container
+	$output .= '<div id="rpt_pricr" class="rpt_plans rpt_'.$nb_entries .'_plans rpt_style_basic">';
 	
-	//opening dk_pricr inner
+	//opening rpt_pricr inner
 	$output .= '<div class="'. $title_fs_class . $subtitle_fs_class . $description_fs_class . $price_fs_class . $recurrence_fs_class . $features_fs_class. $button_fs_class .'">';
 	
 	foreach ($entries as $key => $plans) {
 	
-	if (!empty($plans['_dkp_recommended'])){
-		$is_reco = $plans['_dkp_recommended'];
+	if (!empty($plans['_rpt_recommended'])){
+		$is_reco = $plans['_rpt_recommended'];
 		//opening plan
 		if ($is_reco == true ){
-		    $reco = '<img class="dk_recommended" src="' . plugins_url('img/dk_recommended.png', __FILE__) . '"/>';
-		    $reco_class = 'dk_recommended_plan';
+		    $reco = '<img class="rpt_recommended" src="' . plugins_url('img/rpt_recommended.png', __FILE__) . '"/>';
+		    $reco_class = 'rpt_recommended_plan';
 		} else if ($is_reco == false ) {
 		    $reco = '';
 		    $reco_class = '';
@@ -406,50 +415,50 @@ function dkp_sc($atts) {
 		$reco_class = '';
 	}
 	
-	$output .= '<div class="dk_plan dk_plan_' . $key . ' ' . $reco_class . '">';
+	$output .= '<div class="rpt_plan rpt_plan_' . $key . ' ' . $reco_class . '">';
 		
 		//title
-		if (!empty($plans['_dkp_title'])){
-			$output .= '<div class="dk_title dk_title_' . $key . '">';
+		if (!empty($plans['_rpt_title'])){
+			$output .= '<div class="rpt_title rpt_title_' . $key . '">';
 			
-			if (!empty($plans['_dkp_icon'])){
-				$output .= '<img height=30px width=30px src="' . $plans['_dkp_icon'] . '" class="dk_icon dk_icon_' . $key . '"/> ';
+			if (!empty($plans['_rpt_icon'])){
+				$output .= '<img height=30px width=30px src="' . $plans['_rpt_icon'] . '" class="rpt_icon rpt_icon_' . $key . '"/> ';
 			}
 			
-			$output .= $plans['_dkp_title'];
+			$output .= $plans['_rpt_title'];
 			$output .= $reco . '</div>';
 		}
 		
 		//head
-		$output .= '<div class="dk_head dk_head_' . $key . '">';
+		$output .= '<div class="rpt_head rpt_head_' . $key . '">';
 		
 			//recurrence
-			if (!empty($plans['_dkp_recurrence'])){
-			    	$output .= '<div class="dk_recurrence dk_recurrence_' . $key . '">' . $plans['_dkp_recurrence'] . '</div>';
+			if (!empty($plans['_rpt_recurrence'])){
+			    	$output .= '<div class="rpt_recurrence rpt_recurrence_' . $key . '">' . $plans['_rpt_recurrence'] . '</div>';
 			}
 			
 			//price
-			if (!empty($plans['_dkp_price'])){
+			if (!empty($plans['_rpt_price'])){
 			    
-			    $output .= '<div class="dk_price dk_price_' . $key . '">';
+			    $output .= '<div class="rpt_price rpt_price_' . $key . '">';
 			    
-			    if (!empty($plans['_dkp_free'])){
-			    	if ($plans['_dkp_free'] == true ){
+			    if (!empty($plans['_rpt_free'])){
+			    	if ($plans['_rpt_free'] == true ){
 			    		$output .= __( 'Free' );
 			    	} else {
-				    	$output .= '<span class="dk_currency">$</span>' . $plans['_dkp_price'];
+				    	$output .= '<span class="rpt_currency">$</span>' . $plans['_rpt_price'];
 			    	}		
 			    } else {
 			    	
-			    	$currency = get_post_meta( $post->ID, '_dkp_currency', true );
+			    	$currency = get_post_meta( $post->ID, '_rpt_currency', true );
 			    
 			    	if (!empty($currency)){
-			    		$output .= '<span class="dk_currency">';
+			    		$output .= '<span class="rpt_currency">';
 			    		$output .= $currency;
 						$output .= '</span>';
 					}
 			    	
-			    	$output .= $plans['_dkp_price'];
+			    	$output .= $plans['_rpt_price'];
 			    
 			    }
 			    
@@ -457,24 +466,24 @@ function dkp_sc($atts) {
 			}
 			
 			//subtitle
-			if (!empty($plans['_dkp_subtitle'])){
-			    	$output .= '<div style="color:' . $plans['_dkp_color'] . ';" class="dk_subtitle dk_subtitle_' . $key . '">' . $plans['_dkp_subtitle'] . '</div>';
+			if (!empty($plans['_rpt_subtitle'])){
+			    	$output .= '<div style="color:' . $plans['_rpt_color'] . ';" class="rpt_subtitle rpt_subtitle_' . $key . '">' . $plans['_rpt_subtitle'] . '</div>';
 			    }
 			
 			//description	
-			if (!empty($plans['_dkp_description'])){
-			    $output .= '<div class="dk_description dk_description_' . $key . '">' . $plans['_dkp_description'] . '</div>';
+			if (!empty($plans['_rpt_description'])){
+			    $output .= '<div class="rpt_description rpt_description_' . $key . '">' . $plans['_rpt_description'] . '</div>';
 			}
 			
 		//closing plan head
 		$output .= '</div>';
 		
 		
-		if (!empty($plans['_dkp_features'])){
+		if (!empty($plans['_rpt_features'])){
 			
-			$output .= '<div class="dk_features dk_features_' . $key . '">';
+			$output .= '<div class="rpt_features rpt_features_' . $key . '">';
 			
-			$string = $plans['_dkp_features'];
+			$string = $plans['_rpt_features'];
 			$stringAr = explode("\n", $string);
 			$stringAr = array_filter($stringAr, 'trim'); // remove any extra \r characters left behind
 			
@@ -495,7 +504,7 @@ function dkp_sc($atts) {
 						$check_color = 'black';
 					}	
 											
-					$output .= '<div style="color:' . $check_color . ';" class="dk_feature dk_feature_' . $key . '-' . $small_key . '">';
+					$output .= '<div style="color:' . $check_color . ';" class="rpt_feature rpt_feature_' . $key . '-' . $small_key . '">';
 					$output .= $feature;
 					$output .= '</div>';
 							
@@ -505,10 +514,10 @@ function dkp_sc($atts) {
 			$output .= '</div>';
 		}
 		
-		if (!empty($plans['_dkp_btn_text'])){
-			$btn_text =	$plans['_dkp_btn_text'];
-			if (!empty($plans['_dkp_btn_link'])){
-				$btn_link =	$plans['_dkp_btn_link'];
+		if (!empty($plans['_rpt_btn_text'])){
+			$btn_text =	$plans['_rpt_btn_text'];
+			if (!empty($plans['_rpt_btn_link'])){
+				$btn_link =	$plans['_rpt_btn_link'];
 			} else { $btn_link = 'http://#'; }
 		} else {
 			$btn_text =	'Sign up';
@@ -516,7 +525,7 @@ function dkp_sc($atts) {
 		}
 		
 		//link option
-		$newcurrentwindow = get_post_meta( $post->ID, '_dkp_open_newwindow', true );
+		$newcurrentwindow = get_post_meta( $post->ID, '_rpt_open_newwindow', true );
 		if ($newcurrentwindow == 'newwindow'){
 			$link_behavior = 'target="_blank"';
 		} else {
@@ -524,7 +533,7 @@ function dkp_sc($atts) {
 		}
 		
 		//foot
-		$output .= '<a '. $link_behavior .' href="' . $btn_link . '" style="background:' . $plans['_dkp_color'] . '" class="dk_foot dk_foot_' . $key . '">';
+		$output .= '<a '. $link_behavior .' href="' . $btn_link . '" style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
 		
 			//closing foot
 			$output .= $btn_text;
@@ -536,10 +545,10 @@ function dkp_sc($atts) {
 	
 	}
 	
-	//closing dk_inner
+	//closing rpt_inner
 	$output .= '</div>';
 	
-	//closing dk_container
+	//closing rpt_container
 	$output .= '</div>';
 	
 	$output .= '<div style="clear:both;"></div>';
@@ -550,6 +559,6 @@ function dkp_sc($atts) {
   return $output;
 
 }
-add_shortcode("dk_pricing", "dkp_sc");
+add_shortcode("rpt", "rpt_sc");
 
 ?>

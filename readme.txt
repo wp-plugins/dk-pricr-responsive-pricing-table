@@ -70,6 +70,11 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 
 
 == Changelog ==
+= 3.0 =
+* WARNING: FOR THOSE WHO UPGRADE FROM AN EARLIER VERSION TO THIS VERSION, YOU WILL NEED TO RE-CREATE YOUR PRICING TABLES! 
+* Cleaner plugin admin
+* Cleaner code
+
 = 2.3 =
 * Modified CSS - fits better on small-width websites (or websites with sidebars) 
 
