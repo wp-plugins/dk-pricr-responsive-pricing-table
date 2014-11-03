@@ -70,21 +70,30 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 
 
 == Changelog ==
+= 3.1 =
+* SAFE UPDATE: No data loss for those upgrading from version 3.0 
+* Cleaner plugin admin
+* Cleaner code
+
 = 3.0 =
 * WARNING: FOR THOSE WHO UPGRADE FROM AN EARLIER VERSION TO THIS VERSION, YOU WILL NEED TO RE-CREATE YOUR PRICING TABLES! 
 * Cleaner plugin admin
 * Cleaner code
 
 = 2.3 =
+* SAFE UPDATE: No data loss for those upgrading from version 2.2
 * Modified CSS - fits better on small-width websites (or websites with sidebars) 
 
 = 2.2 =
+* SAFE UPDATE: No data loss for those upgrading from version 2.1
 * Links behavior can be changed 
 
 = 2.1 =
+* SAFE UPDATE: No data loss for those upgrading from version 2.0
 * Font sizes can be changed in case some word doesn’t fit
 
 = 2.0 =
+* WARNING: FOR THOSE WHO UPGRADE FROM AN EARLIER VERSION TO THIS VERSION, YOU WILL NEED TO RE-CREATE YOUR PRICING TABLES! 
 * Use custom post type feature to create pricing tables
 * Plans can be set to Free
 * Plans can be set to Recommended

@@ -3,7 +3,7 @@
  * Plugin Name: Responsive Pricing Table
  * Plugin URI: http://wpdarko.com/darko-tools/responsive-pricing-table/
  * Description: A responsive, easy and elegant way to present your offer to your visitors. Just create a new pricing table (custom type) and copy-paste the shortcode into your posts/pages. Find support and information on the <a href="http://wpdarko.com/darko-tools/responsive-pricing-table/">plugin's page</a>. This free version is NOT limited and does not contain any ad. Check out the <a href='http://wpdarko.com/darko-tools/responsive-pricing-table-pro/'>PRO version</a> for more great features.
- * Version: 3.0
+ * Version: 3.1
  * Author: WP Darko
  * Author URI: http://wpdarko.com
  * License: GPL2
@@ -39,7 +39,7 @@ function create_rpt_pricing_table_type() {
  * @package  Metaboxes
  */
 
-add_filter( 'cmb_meta_boxes', 'rpt_metaboxes' );
+add_filter( 'dkrpt_meta_boxes', 'rpt_metaboxes' );
 
 /*
  * Define the metabox and field configurations.
@@ -51,12 +51,12 @@ function rpt_metaboxes( array $meta_boxes ) {
 	//hiding fields from custom fields list
 	$prefix = '_rpt_';
 
-	//price table single metabox (built with CMB)
+	//price table single metabox (built with dkrpt)
 	$meta_boxes['rpt_tables_group'] = array(
 		'id'         => 'tables_group',
 		'title'      => 'Create / Remove your plans',
 		'pages'      => array( 'rpt_pricing_table', ),
-		'cmb_styles' => true,
+		'dkrpt_styles' => true,
 		'fields'     => array(
 			array(
 				'id'          => $prefix . 'plan_group',
@@ -174,12 +174,12 @@ function rpt_metaboxes( array $meta_boxes ) {
 		),
 	);
 	
-	//price table single metabox (built with CMB)
+	//price table single metabox (built with dkrpt)
 	$meta_boxes['rpt_settings_group'] = array(
 		'id'         => $prefix . 'settings_group',
 		'title'      => 'Pricing table settings',
 		'pages'      => array( 'rpt_pricing_table', ),
-		'cmb_styles' => true,
+		'dkrpt_styles' => true,
 		'context'	 => 'side',
 		'fields'      => array(
 			array(
@@ -287,19 +287,19 @@ function rpt_metaboxes( array $meta_boxes ) {
 	return $meta_boxes;
 }
 
-add_action( 'init', 'rpt_initialize_cmb_meta_boxes', 9999 );
+add_action( 'init', 'rpt_initialize_dkrpt_meta_boxes', 9999 );
 
 //metabox class
-function rpt_initialize_cmb_meta_boxes() {
+function rpt_initialize_dkrpt_meta_boxes() {
 
-	if ( ! class_exists( 'cmb_Meta_Box' ) )
-		require_once 'cmb/init.php';
+	if ( ! class_exists( 'dkrpt_Meta_Box' ) )
+		require_once 'dkrpt/init.php';
 }
 
 //shortcode columns
-add_action( 'manage_rpt_pricing_table_posts_custom_column' , 'custom_columns', 10, 2 );
+add_action( 'manage_rpt_pricing_table_posts_custom_column' , 'rpt_custom_columns', 10, 2 );
 
-function custom_columns( $column, $post_id ) {
+function rpt_custom_columns( $column, $post_id ) {
     switch ( $column ) {
 	case 'shortcode' :
 		global $post;
