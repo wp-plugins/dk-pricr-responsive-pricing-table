@@ -72,8 +72,7 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 == Changelog ==
 = 3.1 =
 * SAFE UPDATE: No data loss for those upgrading from version 3.0 
-* Cleaner plugin admin
-* Cleaner code
+* Preventing plugin conflicts
 
 = 3.0 =
 * WARNING: FOR THOSE WHO UPGRADE FROM AN EARLIER VERSION TO THIS VERSION, YOU WILL NEED TO RE-CREATE YOUR PRICING TABLES! 
