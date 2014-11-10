@@ -84,11 +84,11 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 * Cleaner code
 
 = 2.3 =
-* SAFE UPDATE: No data loss for those upgrading from version 2.2
+* SAFE UPDATE: No data loss for those upgrading from version 2.0 or higher
 * Modified CSS - fits better on small-width websites (or websites with sidebars) 
 
 = 2.2 =
-* SAFE UPDATE: No data loss for those upgrading from version 2.1
+* SAFE UPDATE: No data loss for those upgrading from version 2.0 or higher
 * Links behavior can be changed 
 
 = 2.1 =
