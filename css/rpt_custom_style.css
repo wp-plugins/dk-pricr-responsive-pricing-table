@@ -16,7 +16,11 @@
 .rpt_2_plans .rpt_plan {width:49%; float:left;}
 .rpt_2_plans .rpt_plan_0 {margin-right:2%;}
 
-.rpt_style_basic .rpt_plan .rpt_title img {margin-right:10px; position:relative; top:4px;}
+.rpt_style_basic .rpt_plan .rpt_title img {
+    margin-right:10px; 
+    position:relative; 
+    top:4px;
+}
 .rpt_style_basic .rpt_plan .rpt_title {
 	border-bottom:#111 solid 1px;
 	background:#222;
@@ -189,7 +193,15 @@
 
 .rpt_style_basic .rpt_plan .rpt_foot:hover {opacity:0.8;}
 
-.rpt_style_basic .rpt_plan img {box-shadow:0 0 0; border:none;}
+.rpt_style_basic .rpt_plan img {
+    display:inline;
+    margin:0px 10px 0 0;
+    padding:0;
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    border:none;
+}
 
 .rpt_style_basic .rpt_recommended_plan {position:relative; top:-10px;}
 
@@ -258,8 +270,7 @@ img.rpt_recommended {float:right;}
 	.rpt_style_basic .rpt_plan .rpt_foot {
 		padding:10px 40px;
 		text-align:center;
-		color: white;
-		font-size: 20px;
+        font-size: 20px;
 	}
 	
 	.rpt_plans .rpt_plan {width:96%;}
