@@ -3,13 +3,13 @@
  * Plugin Name: Responsive Pricing Table
  * Plugin URI: http://wpdarko.com/darko-tools/responsive-pricing-table/
  * Description: A responsive, easy and elegant way to present your offer to your visitors. Just create a new pricing table (custom type) and copy-paste the shortcode into your posts/pages. Find support and information on the <a href="http://wpdarko.com/darko-tools/responsive-pricing-table/">plugin's page</a>. This free version is NOT limited and does not contain any ad. Check out the <a href='http://wpdarko.com/darko-tools/responsive-pricing-table-pro/'>PRO version</a> for more great features.
- * Version: 3.2.1
+ * Version: 3.2.2
  * Author: WP Darko
  * Author URI: http://wpdarko.com
  * License: GPL2
  */
 
-function free_pro_check() {
+function rpt_free_pro_check() {
     if (is_plugin_active('responsive-pricing-table-pro/rpt_pro.php')) {
         
         function my_admin_notice(){
@@ -23,7 +23,7 @@ function free_pro_check() {
     }
 }
 
-add_action( 'admin_init', 'free_pro_check' );
+add_action( 'admin_init', 'rpt_free_pro_check' );
 
 //adds stylesheet
 add_action( 'wp_enqueue_scripts', 'add_rpt_style' );
@@ -189,6 +189,29 @@ function rpt_metaboxes( array $meta_boxes ) {
 			),
 		),
 	);
+    
+    function lala() {
+        return "<p>This free version is <strong>NOT</strong> limited and does <strong>not</strong> contain any ad. Check out the <a style='color:rgb(97, 209, 170);' href='http://wpdarko.com/darko-tools/responsive-pricing-table-pro/'>PRO version</a> for more great features.</p>";
+    }
+    
+    //go pro
+	$meta_boxes['rpt_pro_group'] = array(
+		'id'         => $prefix . 'pro_group',
+		'title'      => 'Responsive Pricing Table PRO',
+		'pages'      => array( 'rpt_pricing_table', ),
+		'dkrpt_styles' => true,
+		'context'	 => 'side',
+        'priority' => 'low',
+		'fields'      => array(
+			array(
+				'name' => '',
+				'id'   => $prefix . 'pro_desc',
+				'type' => 'title',
+                'desc' => lala(),
+			),
+
+		),
+	);
 	
 	//price table single metabox (built with dkrpt)
 	$meta_boxes['rpt_settings_group'] = array(
@@ -197,6 +220,7 @@ function rpt_metaboxes( array $meta_boxes ) {
 		'pages'      => array( 'rpt_pricing_table', ),
 		'dkrpt_styles' => true,
 		'context'	 => 'side',
+        'priority' => 'high',
 		'fields'      => array(
 			array(
 				'name' => 'General settings',
