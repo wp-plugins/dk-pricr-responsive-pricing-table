@@ -37,7 +37,7 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 Go to [the plugin's page](http://wpdarko.com/darko-tools/responsive-pricing-table/) if you need more information on how to use this plugin.
 
 = Support =
-Find help in [our forums](http://wpdarko.com/forums/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
+Find help in [our forums](http://wpdarko.com/forums/forum/plugins/dk-pricr/) for this plugin (we’ll answer you fast, promise).
 
 == Installation ==
 
@@ -56,7 +56,7 @@ Go to [the plugin's page](http://wpdarko.com/darko-tools/responsive-pricing-tabl
 Go to [the plugin's page](http://wpdarko.com/darko-tools/responsive-pricing-table/) for information on how to use this plugin.
 
 = Where can I get help with this plugin? =
-Find help in [our forums](http://wpdarko.com/forums/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
+Find help in [our forums](http://wpdarko.com/forums/forum/plugins/dk-pricr/) for this plugin (we’ll answer you fast, promise).
 
 = Free vs PRO version? =
 The free version of the Responsive Pricing Table plugin is **not limited** and does not contain any ad. The [PRO version](http://wpdarko.com/darko-tools/responsive-pricing-table-pro/) gives you access to two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features.
