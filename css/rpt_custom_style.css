@@ -19,7 +19,7 @@
 .rpt_style_basic .rpt_plan .rpt_title img {
     margin-right:10px; 
     position:relative; 
-    top:4px;
+    vertical-align: middle;
 }
 .rpt_style_basic .rpt_plan .rpt_title {
 	border-bottom:#111 solid 1px;
@@ -240,6 +240,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1e1e', end
 .rpt_5_plans .rpt_sm_button .rpt_recommended_plan .rpt_foot {font-size:18px; padding:10px 0px;}
 
 img.rpt_recommended {float:right;}
+
+/* CSS FIXES */
+.entry-content .rpt_plan a {border-bottom:none;}
+.rpt_plan a {border-bottom:none;}
 
 /* TABLETS */
 

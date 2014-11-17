@@ -70,6 +70,11 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 
 
 == Changelog ==
+= 3.2.3 =
+* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
+* Fixed icon position issue
+* Prepared for WordPress 4.1
+
 = 3.2.2 =
 * SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
 * Preventing plugin conflicts
