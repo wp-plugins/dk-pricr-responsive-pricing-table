@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 A responsive and elegant way to present your offer to your visitors. Create a new pricing table now and copy-paste the shortcode anywhere.
 
 == Description ==
-— [View demo & instructions](http://wpdarko.com/darko-tools/responsive-pricing-table/) —
+[View demo & instructions](http://wpdarko.com/darko-tools/responsive-pricing-table/)
 
 This plugin adds a “Pricing Tables” tab in the admin panel which allows you to create pricing tables for your website the easy way. You can quickly add features to your different plans, choose a color (as well as many other options) and display your price table anywhere with a simple shortcode. What you see is what you get, and it’s totally free.
 
