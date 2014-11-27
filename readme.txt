@@ -26,7 +26,7 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 * Title
 * Subtitle
 * Description
-* Price (Duh!)
+* Price
 * Currency
 * Recurrence (“one-time fee”, “per month”)
 * Features (as many as you want)
