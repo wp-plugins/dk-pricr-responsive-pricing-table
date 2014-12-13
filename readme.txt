@@ -72,6 +72,12 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 
 
 == Changelog ==
+= 3.3.0 =
+* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
+* Added a new font-size preset for the price element
+* All font-sizes are more accurate and will better fit on your pages
+* Fixed styling issues for small screens 
+
 = 3.2.4 =
 * SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
 * Solved conflict when generating shortcode
