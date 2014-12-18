@@ -3,7 +3,7 @@
  * Plugin Name: Responsive Pricing Table
  * Plugin URI: http://wpdarko.com/responsive-pricing-table/
  * Description: A responsive, easy and elegant way to present your offer to your visitors. Just create a new pricing table (custom type) and copy-paste the shortcode into your posts/pages. Find support and information on the <a href="http://wpdarko.com/responsive-pricing-table/">plugin's page</a>. This free version is NOT limited and does not contain any ad. Check out the <a href='http://wpdarko.com/responsive-pricing-table-pro/'>PRO version</a> for more great features.
- * Version: 3.3.0
+ * Version: 3.4.0
  * Author: WP Darko
  * Author URI: http://wpdarko.com
  * License: GPL2
@@ -105,11 +105,13 @@ function rpt_metaboxes( array $meta_boxes ) {
 						'name' => 'Subtitle',
 						'id'   => $prefix . 'subtitle',
 						'type' => 'text',
+                        'sanitization_cb' => false,
 					),	
 					array(
 						'name' => 'Description',
 						'id'   => $prefix . 'description',
 						'type' => 'text',
+                        'sanitization_cb' => false,
 					),				
 					array(
 						'name' => 'Price',		
@@ -127,6 +129,7 @@ function rpt_metaboxes( array $meta_boxes ) {
 						'name' => 'Recurrence',
 						'id'   => $prefix . 'recurrence',
 						'type' => 'text',
+                        'sanitization_cb' => false,
                         'attributes'  => array(
                             'placeholder' => 'eg. per month, one time fee',
                         ),
@@ -170,6 +173,7 @@ function rpt_metaboxes( array $meta_boxes ) {
 						'name' => 'Button link',
 						'id'   => $prefix . 'btn_link',
 						'type' => 'text',
+                        'sanitization_cb' => false,
                         'attributes'  => array(
                             'placeholder' => 'eg. http://anything.com',
                         ),
@@ -231,7 +235,6 @@ function rpt_metaboxes( array $meta_boxes ) {
 		    	'name' => 'Change currency',
 		    	'id'   => $prefix . 'currency',
 		    	'type' => 'text',
-		    	'default' => '$',
 		    ),
 		    array(
 				'name' => 'Links behavior',
@@ -489,7 +492,7 @@ function rpt_sc($atts) {
 			    	if ($plans['_rpt_free'] == true ){
 			    		$output .= __( 'Free' );
 			    	} else {
-				    	$output .= '<span class="rpt_currency">$</span>' . $plans['_rpt_price'];
+				    	$output .= '<span class="rpt_currency"></span>' . $plans['_rpt_price'];
 			    	}		
 			    } else {
 			    	
@@ -533,7 +536,7 @@ function rpt_sc($atts) {
 			$features = '';
 			
 			foreach ($stringAr as $feature) {
-				$features[] .= strip_tags($feature,'<strong></strong>');
+				$features[] .= strip_tags($feature,'<strong></strong><br><br/></br>');
 			}
 			
 			foreach ($features as $small_key => $feature){

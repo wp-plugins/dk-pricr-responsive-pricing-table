@@ -72,6 +72,14 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 
 
 == Changelog ==
+= 3.4.0 =
+* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
+* Possible to hide the currency symbol
+* Allow special characters in the button link (third party sites/payments)
+* Allow <br> tags in the features (adjust line breaks to your liking)
+* Allow <br> tags in the description
+* Allow <br> tags in the subtitle
+
 = 3.3.0 =
 * SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
 * Added a new font-size preset for the price element
