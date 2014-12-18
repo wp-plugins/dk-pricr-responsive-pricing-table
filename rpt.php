@@ -564,10 +564,10 @@ function rpt_sc($atts) {
 			$btn_text =	$plans['_rpt_btn_text'];
 			if (!empty($plans['_rpt_btn_link'])){
 				$btn_link =	$plans['_rpt_btn_link'];
-			} else { $btn_link = 'http://#'; }
+			} else { $btn_link = '#'; }
 		} else {
 			$btn_text =	'';
-			$btn_link = 'http://#';
+			$btn_link = '#';
 		}
 		
 		//link option
@@ -579,7 +579,9 @@ function rpt_sc($atts) {
 		}
 		
 		//foot
-		$output .= '<a '. $link_behavior .' href="' . $btn_link . '" style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
+        if (!empty($plans['_rpt_btn_text'])){
+		  $output .= '<a '. $link_behavior .' href="' . $btn_link . '" style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
+        }
 		
 			//closing foot
 			$output .= $btn_text;
