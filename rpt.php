@@ -566,7 +566,7 @@ function rpt_sc($atts) {
 				$btn_link =	$plans['_rpt_btn_link'];
 			} else { $btn_link = 'http://#'; }
 		} else {
-			$btn_text =	'Sign up';
+			$btn_text =	'';
 			$btn_link = 'http://#';
 		}
 		
