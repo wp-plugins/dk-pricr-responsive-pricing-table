@@ -527,7 +527,11 @@ function rpt_sc($atts) {
 		
 		if (!empty($plans['_rpt_features'])){
 			
-			$output .= '<div class="rpt_features rpt_features_' . $key . '">';
+            if (!empty($plans['_rpt_btn_text'])){
+			     $output .= '<div class="rpt_features rpt_features_' . $key . '">';
+            } else {
+                 $output .= '<div style="border-radius:8px;" class="rpt_features rpt_features_' . $key . '">';
+            }
 			
 			$string = $plans['_rpt_features'];
 			$stringAr = explode("\n", $string);
@@ -581,6 +585,8 @@ function rpt_sc($atts) {
 		//foot
         if (!empty($plans['_rpt_btn_text'])){
 		  $output .= '<a '. $link_behavior .' href="' . $btn_link . '" style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
+        } else {
+          $output .= '<a '. $link_behavior .' style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
         }
 		
 			//closing foot
