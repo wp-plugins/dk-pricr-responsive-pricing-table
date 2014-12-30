@@ -72,6 +72,10 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 
 
 == Changelog ==
+= 3.4.1 =
+* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
+* Minor bug fix
+
 = 3.4.0 =
 * SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
 * Possible to hide the currency symbol
