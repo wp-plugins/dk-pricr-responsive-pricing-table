@@ -72,6 +72,10 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 
 
 == Changelog ==
+= 3.5 =
+* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
+* You can now put this shortcode inside another one if you want (nested shortcodes)
+
 = 3.4.2 =
 * SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
 * Admin panel small bug fix
