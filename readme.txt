@@ -72,6 +72,10 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 
 
 == Changelog ==
+= 3.5.1 =
+* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
+* You can now add pictures/icons in the feature area using the <img> tag
+
 = 3.5 =
 * SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
 * You can now put this shortcode inside another one if you want (nested shortcodes)
