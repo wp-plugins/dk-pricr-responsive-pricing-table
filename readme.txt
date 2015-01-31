@@ -69,8 +69,6 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 3. Creating a pricing table 1 (admin view)
 4. Creating a pricing table 2 (admin view)
 5. Finding the shortcode (admin view)
-6. The free version of the Responsive Pricing Table plugin is **not limited** and does not contain any ad. The [PRO version](http://wpdarko.com/responsive-pricing-table-pro/) gives you access to two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features. 
-
 
 == Changelog ==
 = 3.5.1 =
