@@ -9,8 +9,6 @@ License URI: http://www.gnu.org/licenses/gpl.html
 A responsive and elegant way to present your offer to your visitors. Create a new pricing table now and copy-paste the shortcode anywhere.
 
 == Description ==
-[View demo & instructions](http://wpdarko.com/responsive-pricing-table/)
-
 This plugin adds a “Pricing Tables” tab in the admin panel which allows you to create pricing tables for your website the easy way. You can quickly add features to your different plans, choose a color (as well as many other options) and display your price table anywhere with a simple shortcode. What you see is what you get, and it’s totally free.
 
 = Rate and review =
@@ -38,10 +36,10 @@ The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) gives 
 * Font size 
 
 = Usage =
-Go to [the plugin's page](http://wpdarko.com/responsive-pricing-table/) if you need more information on how to use this plugin.
+Go to [the plugin's documentation](http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/) if you need more information on how to use this plugin.
 
 = Support =
-Find help in [our forums](http://wpdarko.com/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
+Find help in [our forums](http://wpdarko.com/support/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
 
 == Installation ==
 
@@ -52,15 +50,15 @@ Find help in [our forums](http://wpdarko.com/forum/plugins/responsive-pricing-ta
 4. Activate the plugin
 
 = Usage =
-Go to [the plugin's page](http://wpdarko.com/responsive-pricing-table/) for information on how to use it.
+Go to [the plugin's documentation](http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/) for information on how to use it.
 
 == Frequently Asked Questions ==
 
 = Example & Support =
-Go to [the plugin's page](http://wpdarko.com/responsive-pricing-table/) for information on how to use this plugin.
+Go to [the plugin's documentation](http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/) for information on how to use this plugin.
 
 = Where can I get help with this plugin? =
-Find help in [our forums](http://wpdarko.com/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
+Find help in [our forums](http://wpdarko.com/support/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
 
 = No limitation for the Free version =
 The free version of the Responsive Pricing Table plugin is **not limited** and does not contain any ad.    
