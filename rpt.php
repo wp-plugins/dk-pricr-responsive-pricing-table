@@ -277,7 +277,7 @@ function rpt_register_plan_group_metabox() {
             'name' => 'General settings',
             'id'   => $prefix . 'other_settings_desc',
             'type' => 'title',
-            'row_classes' => 'de_hundred_side de_heading',
+            'row_classes' => 'de_hundred_side de_heading_side',
         ));
     
         $side_group->add_field( array(
@@ -323,7 +323,7 @@ function rpt_register_plan_group_metabox() {
 				'name' => 'Font sizes',
 				'id'   => $prefix . 'font_sizes_desc',
 				'type' => 'title',
-                'row_classes' => 'de_hundred_side de_heading',
+                'row_classes' => 'de_hundred_side de_heading_side',
         ));
     
         $side_group->add_field( array(
