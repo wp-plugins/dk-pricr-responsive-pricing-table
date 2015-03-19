@@ -3,14 +3,15 @@
 Plugin Name: Responsive Pricing Table
 Plugin URI: http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/
 Description: A responsive, easy and elegant way to present your offer to your visitors. Just create a new pricing table (custom type) and copy-paste the shortcode into your posts/pages. Find support and information on the <a href="http://wpdarko.com/responsive-pricing-table/">plugin's page</a>. This free version is NOT limited and does not contain any ad. Check out the <a href='http://wpdarko.com/items/responsive-pricing-table-pro/'>PRO version</a> for more great features.
-Version: 3.5.1
+Version: 4.0
 Author: WP Darko
 Author URI: http://wpdarko.com
 License: GPL2
- */
+*/
 
+// Check for the PRO version
 function rpt_free_pro_check() {
-    if (is_plugin_active('responsive-pricing-table-pro/rpt_pro.php')) {
+    if (is_plugin_active('responsive-pricing-table-pro/rpt_pro.php')) { 
         
         function my_admin_notice(){
         echo '<div class="updated">
@@ -25,14 +26,21 @@ function rpt_free_pro_check() {
 
 add_action( 'admin_init', 'rpt_free_pro_check' );
 
-//adds stylesheet
-add_action( 'wp_enqueue_scripts', 'add_rpt_style' );
-function add_rpt_style() {
-	wp_enqueue_style( 'rpt', plugins_url('css/rpt_custom_style.min.css', __FILE__));
+/* Enqueue styles */
+function add_rpt_scripts() {
+	wp_enqueue_style( 'rpt', plugins_url('css/rpt_style.min.css', __FILE__));
 }
 
-add_action( 'init', 'create_rpt_pricing_table_type' );
+add_action( 'wp_enqueue_scripts', 'add_rpt_scripts', 99 );
 
+/* Enqueue admin styles */
+add_action( 'admin_enqueue_scripts', 'add_admin_rpt_style' );
+
+function add_admin_rpt_style() {
+	wp_enqueue_style( 'rpt', plugins_url('css/admin_de_style.min.css', __FILE__));
+}
+
+// Create Pricing Table custom type
 function create_rpt_pricing_table_type() {
   register_post_type( 'rpt_pricing_table',
     array(
@@ -49,210 +57,276 @@ function create_rpt_pricing_table_type() {
   );
 }
 
-/*
- * Include and setup custom metaboxes and fields.
- * @category Responsive Pricing Table
- * @package  Metaboxes
- */
+add_action( 'init', 'create_rpt_pricing_table_type' );
 
-add_filter( 'dkrpt_meta_boxes', 'rpt_metaboxes' );
+/* Hide View/Preview since it's a shortcode */
+function rpt_pricing_table_admin_css() {
+    global $post_type;
+    $post_types = array( 
+                        'rpt_pricing_table',
+                  );
+    if(in_array($post_type, $post_types))
+    echo '<style type="text/css">#post-preview, #view-post-btn{display: none;}</style>';
+}
 
-/*
- * Define the metabox and field configurations.
- * @param  array $meta_boxes
- * @return array
- */
-function rpt_metaboxes( array $meta_boxes ) {
+function remove_view_link_rpt_pricing_table( $action ) {
 
-	//hiding fields from custom fields list
-	$prefix = '_rpt_';
+    unset ($action['view']);
+    return $action;
+}
 
-	//price table single metabox (built with dkrpt)
-	$meta_boxes['rpt_tables_group'] = array(
-		'id'         => 'tables_group',
-		'title'      => 'Create / Remove your plans',
-		'pages'      => array( 'rpt_pricing_table', ),
-		'dkrpt_styles' => true,
-		'fields'     => array(
-			array(
-				'id'          => $prefix . 'plan_group',
-				'type'        => 'group',
-				'options'     => array(
-					'group_title'   => 'Plan {#}',
-					'add_button'    => 'Add Plan',
-					'remove_button' => 'Remove Plan',
-					'sortable'      => true,
-				),
-				'fields'      => array(
-					array(
-						'name' => 'Plan header',
-						'id'   => $prefix . 'header_desc',
-						'type' => 'title',
-					),
-					array(
-						'name' => 'Title',
-						'id'   => $prefix . 'title',
-						'type' => 'text',
-					),
-					array(
-						'name' => 'Recommended?',
-						'desc' => 'check this if it\'s a recommended plan',
-						'id'   => $prefix . 'recommended',
-						'type' => 'checkbox',
-						'default' => false,
-					),
-					array(
-						'name' => 'Subtitle',
-						'id'   => $prefix . 'subtitle',
-						'type' => 'text',
-                        'sanitization_cb' => false,
-					),	
-					array(
-						'name' => 'Description',
-						'id'   => $prefix . 'description',
-						'type' => 'text',
-                        'sanitization_cb' => false,
-					),				
-					array(
-						'name' => 'Price',		
-						'id'   => $prefix . 'price',
-						'type' => 'text',
-					),
-					array(
-						'name' => 'Free?',
-						'desc' => 'check this if this plan is free',
-						'id'   => $prefix . 'free',
-						'type' => 'checkbox',
-						'default' => false,
-					),
-					array(
-						'name' => 'Recurrence',
-						'id'   => $prefix . 'recurrence',
-						'type' => 'text',
-                        'sanitization_cb' => false,
-                        'attributes'  => array(
-                            'placeholder' => 'eg. per month, one time fee',
-                        ),
-					),	
-					array(
-						'name' => 'Small icon',
-						'id'   => $prefix . 'icon',
-						'type' => 'file',
-                        'attributes'  => array(
-                            'placeholder' => 'recommended size: 30 x 30',
-                        ),
-					),
-					array(
-					'name' => 'Plan features',
-					'desc' => '<div style="margin-top: 20px;line-height:24px; padding:10px; padding-left:30px; border-left:grey solid 4px;"><span style="font-style:normal; color:black;"><span style="color:black;"><strong>&#60;strong&#62;</strong></span> tags allowed for bold text.<br/><span style="color:#bbbbbb; font-size:12px;">eg. "&#60;strong&#62;5&#60;/strong&#62; products in the store".</span><br/>Use prefix "<span style="color:black;"><strong>-n</strong></span>" if the feature isn\'t available in this plan.<br/><span style="color:#bbbbbb; font-size:12px;">eg. "-n Custom domain name."</span></span></div>',
-					'id'   => $prefix . 'features_desc',
-					'type' => 'title',
-					),
-					array(
-					    'name' => 'Features',
-					    'id' => $prefix . 'features',
-					    'type' => 'textarea',
-                        'attributes'  => array(
-                            'placeholder' => 'one per line',
-                        ),
-					),
-					array(
-						'name' => 'Plan button',
-						'id'   => $prefix . 'plan_button_desc',
-						'type' => 'title',
-					),
-					array(
-						'name' => 'Button text',
-						'id'   => $prefix . 'btn_text',
-						'type' => 'text',
-                        'attributes'  => array(
-                            'placeholder' => 'eg. Sign up, Buy',
-                        ),
-					),	
-					array(
-						'name' => 'Button link',
-						'id'   => $prefix . 'btn_link',
-						'type' => 'text',
-                        'sanitization_cb' => false,
-                        'attributes'  => array(
-                            'placeholder' => 'eg. http://anything.com',
-                        ),
-					),
-					array(
-						'name' => 'Plan styling',
-						'id'   => $prefix . 'styling_desc',
-						'type' => 'title',
-					),
-					array(
-						'name' => 'Color',
-						'id'   => $prefix . 'color',
-						'type' => 'colorpicker',
-						'default'  => '#9fdb80',
-					),	
-				),
-			),
-		),
-	);
+add_filter( 'post_row_actions', 'remove_view_link_rpt_pricing_table' );
+add_action( 'admin_head-post-new.php', 'rpt_pricing_table_admin_css' );
+add_action( 'admin_head-post.php', 'rpt_pricing_table_admin_css' );
+
+// Adding the CMB2 Metabox class
+if ( file_exists( dirname( __FILE__ ) . '/cmb2/init.php' ) ) {
+    require_once dirname( __FILE__ ) . '/cmb2/init.php';
+} elseif ( file_exists( dirname( __FILE__ ) . '/CMB2/init.php' ) ) {
+    require_once dirname( __FILE__ ) . '/CMB2/init.php';
+}
+
+// Registering Pricing Table metaboxes
+function rpt_register_plan_group_metabox() {
     
-    function lala() {
-        return "<p>This free version is <strong>NOT</strong> limited and does <strong>not</strong> contain any ad. Check out the <a style='color:rgb(97, 209, 170);' href='http://wpdarko.com/items/responsive-pricing-table-pro/'>PRO version</a> for more great features.</p>";
-    }
-    
-    //go pro
-	$meta_boxes['rpt_pro_group'] = array(
-		'id'         => $prefix . 'pro_group',
-		'title'      => 'Responsive Pricing Table PRO',
-		'pages'      => array( 'rpt_pricing_table', ),
-		'dkrpt_styles' => true,
-		'context'	 => 'side',
-        'priority' => 'low',
-		'fields'      => array(
-			array(
-				'name' => '',
-				'id'   => $prefix . 'pro_desc',
-				'type' => 'title',
-                'desc' => lala(),
-			),
+    $prefix = '_rpt_';
+   
+    // Tables group
+    $main_group = new_cmb2_box( array(
+        'id' => $prefix . 'plan_metabox',
+        'title' => '<span class="dashicons dashicons-welcome-add-page"></span> Pricing Table Plans',
+        'object_types' => array( 'rpt_pricing_table' ),
+    ));
 
-		),
-	);
-	
-	//price table single metabox (built with dkrpt)
-	$meta_boxes['rpt_settings_group'] = array(
-		'id'         => $prefix . 'settings_group',
-		'title'      => 'Pricing table settings',
-		'pages'      => array( 'rpt_pricing_table', ),
-		'dkrpt_styles' => true,
-		'context'	 => 'side',
+        $rpt_plan_group = $main_group->add_field( array(
+            'id' => $prefix . 'plan_group',
+            'type' => 'group',
+            'options' => array(
+                'group_title' => 'Plan {#}',
+                'add_button' => 'Add another plan',
+                'remove_button' => 'Remove plan',
+                'sortable' => true,
+            ),
+        ));
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => 'Plan Header',
+                'id' => $prefix . 'head_header',
+                'type' => 'title',
+                'row_classes' => 'de_hundred de_heading',
+            ));
+
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '<span class="dashicons dashicons-edit"></span> Title',
+                'id' => $prefix . 'title',
+                'type' => 'text',
+                'row_classes' => 'de_first de_fifty de_text de_input',
+            ));
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '<span class="dashicons dashicons-edit"></span> Subtitle',
+                'id'   => $prefix . 'subtitle',
+                'type' => 'text',
+                'sanitization_cb' => false,
+                'row_classes' => 'de_fifty de_text de_input',
+            ));
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '<span class="dashicons dashicons-edit"></span> Description',
+                'id'   => $prefix . 'description',
+                'type' => 'text',
+                'sanitization_cb' => false,
+                'row_classes' => 'de_first de_fifty de_text de_input',
+            ));
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '<span class="dashicons dashicons-edit"></span> Price',		
+	       	    'id'   => $prefix . 'price',
+                'type' => 'text',
+                'row_classes' => 'de_twentyfive de_text de_input',
+            ));
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '<span class="dashicons dashicons-edit"></span> Recurrence',
+                'id'   => $prefix . 'recurrence',
+                'type' => 'text',
+                'sanitization_cb' => false,
+                'row_classes' => 'de_twentyfive de_text de_input',
+                'attributes'  => array(
+                    'placeholder' => 'eg. per month',
+                ),
+            ));
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '<span class="dashicons dashicons-format-image"></span> Small icon',
+                'id'   => $prefix . 'icon',
+                'type' => 'file',
+                'attributes'  => array(
+                    'placeholder' => 'recommended size: 30 x 30',
+                ),
+                'row_classes' => 'de_hundred de_upload de_input',
+            ));
+            
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '<span class="dashicons dashicons-admin-post"></span> Mark as a RECOMMENDED plan',
+                'desc' => 'Checking this will highlight the plan (eg. best deal).',
+                'id' => $prefix . 'recommended',
+                'type' => 'checkbox',
+                'default' => false,
+                'row_classes' => 'de_first de_fifty de_checkbox',
+            ));
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '<span class="dashicons dashicons-admin-post"></span> Remove currency sign',
+				'desc' => 'Checking this will remove the currency sign (eg. free plans).',
+				'id'   => $prefix . 'free',
+				'type' => 'checkbox',
+				'default' => false,
+                'row_classes' => 'de_fifty de_checkbox',
+            ));
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => 'Plan Features',
+                'id' => $prefix . 'features_header',
+                'type' => 'title',
+                'row_classes' => 'de_hundred de_heading',
+            ));
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '<span class="dashicons dashicons-edit"></span> Feature list',
+				'id' => $prefix . 'features',
+				'type' => 'textarea',
+                'attributes'  => array(
+                    'placeholder' => 'one per line',
+                    'rows' => 10,
+                ),
+                'row_classes' => 'de_first de_fifty de_textarea de_input',
+            ));
+            
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => 'Tips & Tricks',
+                'desc' => '<span class="dashicons dashicons-yes"></span> Add images (not recommended)<br/><span style="color:#bbb;">&lt;img src="http://yoursite.com/yourimage.png"/&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Add links<br/><span style="color:#bbb;">&lt;a href="http://yoursite.com"&gt;Go to yoursite.com&lt;/a&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Add bold text<br/><span style="color:#bbb;">&lt;strong&gt;Something <strong>important</strong>&lt;/strong&gt;</span><br/><br/><span style="color:#8a7463;"><span class="dashicons dashicons-lock"></span> PRO Add Tooltips<br/>Tooltips are info bubbles for your features.</span>',
+                'id'   => $prefix . 'features_desc',
+                'type' => 'title',
+                'row_classes' => 'de_fifty de_info',
+            ));
+            
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => 'Plan Button',
+                'id' => $prefix . 'button_header',
+                'type' => 'title',
+                'row_classes' => 'de_hundred de_heading',
+            ));
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '<span class="dashicons dashicons-edit"></span> Button text',
+                'id'   => $prefix . 'btn_text',
+                'type' => 'text',
+                'attributes'  => array(
+                    'placeholder' => 'eg. Sign up, Buy',
+                ),
+                'row_classes' => 'de_first de_fifty de_text de_input',
+            ));
+            
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '<span class="dashicons dashicons-admin-links"></span> Button link',
+	               'id'   => $prefix . 'btn_link',
+	               'type' => 'text',
+                'sanitization_cb' => false,
+                'attributes'  => array(
+                    'placeholder' => 'eg. http://anything.com',
+                ),
+                'row_classes' => 'de_fifty de_text de_input',
+            ));
+            
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => 'Plan styling',
+                'id'   => $prefix . 'styling_desc',
+                'type' => 'title',
+                'row_classes' => 'de_hundred de_heading',
+            ));
+            
+            $main_group->add_group_field( $rpt_plan_group, array(
+               'name' => '<span class="dashicons dashicons-admin-appearance"></span> Color',
+               'desc' => 'This color will be used for several elements of the plan.',
+	           'id'   => $prefix . 'color',
+	           'type' => 'colorpicker',
+	           'default'  => '#9fdb80',
+               'row_classes' => 'de_hundred de_color',
+            ));
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '',
+                'id'   => $prefix . 'sep_header',
+                'type' => 'title',
+                'row_classes' => 'de_hundred',
+            ));
+    
+    // Settings group
+    $side_group = new_cmb2_box( array(
+        'id' => $prefix . 'settings_metabox',
+        'title' => '<span class="dashicons dashicons-admin-tools"></span> Pricing Table Settings',
+        'object_types' => array( 'rpt_pricing_table' ),
+        'context' => 'side',
         'priority' => 'high',
-		'fields'      => array(
-			array(
-				'name' => 'General settings',
-				'id'   => $prefix . 'other_settings_desc',
-				'type' => 'title',
+        'closed' => true,
+    ));
+        
+        $side_group->add_field( array(
+            'name' => 'General settings',
+            'id'   => $prefix . 'other_settings_desc',
+            'type' => 'title',
+            'row_classes' => 'de_hundred_side de_heading',
+        ));
+    
+        $side_group->add_field( array(
+            'name' => '<span class="dashicons dashicons-edit"></span> Change currency',
+		    'id'   => $prefix . 'currency',
+		    'type' => 'text',
+            'row_classes' => 'de_hundred_side de_text_side de_input',
+        ));
+    
+        $side_group->add_field( array(
+            'name'    => '<span style="color:#8a7463;"><span class="dashicons dashicons-lock"></span> PRO Select table skin</span>',
+			'id'      => $prefix . 'skin',
+			'type'    => 'select',
+			'options' => array(
+			    'basic' => 'Skins are new table designs',
 			),
-		    array(
-		    	'name' => 'Change currency',
-		    	'id'   => $prefix . 'currency',
-		    	'type' => 'text',
-		    ),
-		    array(
-				'name' => 'Links behavior',
-				'id'   => $prefix . 'open_newwindow',
-				'type' => 'select',
-			    'options' => array(
-			    	'currentwindow'   => 'Open in current window',
-			        'newwindow' => 'Open in new window/tab',
-			    ),
-			    'default' => 'currentwindow',
+			'default' => 'basic',
+            'row_classes' => 'de_hundred_side de_text_side',
+        ));
+    
+        $side_group->add_field( array(
+            'name' => '<span class="dashicons dashicons-arrow-down"></span> Links behavior',
+			'id'   => $prefix . 'open_newwindow',
+			'type' => 'select',
+			'options' => array(
+				'currentwindow'   => 'Open in current window',
+			    'newwindow' => 'Open in new window/tab',
 			),
-			array(
+			'default' => 'currentwindow',
+            'row_classes' => 'de_hundred_side de_text_side',
+        ));
+    
+        $side_group->add_field( array(
+            'name' => '<span class="dashicons dashicons-admin-generic"></span> Force original fonts',
+            'desc' => 'By default this plugin will use your theme\'s font, check this to force the use of the plugin\'s original fonts.',
+		    'id'   => $prefix . 'original_font',
+		    'type' => 'checkbox',
+            'row_classes' => 'de_hundred_side de_checkbox_side',
+            'default' => false,
+        ));    
+    
+        $side_group->add_field( array(
 				'name' => 'Font sizes',
 				'id'   => $prefix . 'font_sizes_desc',
 				'type' => 'title',
-			),
-		    array(
-			    'name'    => 'Title font size',
+                'row_classes' => 'de_hundred_side de_heading',
+        ));
+    
+        $side_group->add_field( array(
+			    'name'    => '<span class="dashicons dashicons-arrow-down"></span> Title',
 			    'id'      => $prefix . 'title_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
@@ -261,9 +335,11 @@ function rpt_metaboxes( array $meta_boxes ) {
 			        'normal'     => 'Normal',
 			    ),
 			    'default' => 'normal',
-			),
-			array(
-			    'name'    => 'Subtitle font size',
+                'row_classes' => 'de_hundred_side de_text_side',
+        ));
+    
+        $side_group->add_field( array(
+			    'name'    => '<span class="dashicons dashicons-arrow-down"></span> Subtitle',
 			    'id'      => $prefix . 'subtitle_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
@@ -272,9 +348,11 @@ function rpt_metaboxes( array $meta_boxes ) {
 			        'normal'     => 'Normal',
 			    ),
 			    'default' => 'normal',
-			),
-			array(
-			    'name'    => 'Description font size',
+                'row_classes' => 'de_hundred_side de_text_side',
+        ));
+    
+        $side_group->add_field( array(
+			    'name'    => '<span class="dashicons dashicons-arrow-down"></span> Description',
 			    'id'      => $prefix . 'description_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
@@ -282,9 +360,11 @@ function rpt_metaboxes( array $meta_boxes ) {
 			        'normal'     => 'Normal',
 			    ),
 			    'default' => 'normal',
-			),
-			array(
-			    'name'    => 'Price font size',
+                'row_classes' => 'de_hundred_side de_text_side',
+        ));
+    
+        $side_group->add_field( array(
+			    'name'    => '<span class="dashicons dashicons-arrow-down"></span> Price',
 			    'id'      => $prefix . 'price_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
@@ -294,9 +374,11 @@ function rpt_metaboxes( array $meta_boxes ) {
 			        'normal'     => 'Big',
 			    ),
 			    'default' => 'normal',
-			),
-			array(
-			    'name'    => 'Recurrence font size',
+                'row_classes' => 'de_hundred_side de_text_side',
+        ));
+    
+        $side_group->add_field( array(
+			    'name'    => '<span class="dashicons dashicons-arrow-down"></span> Recurrence',
 			    'id'      => $prefix . 'recurrence_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
@@ -304,19 +386,11 @@ function rpt_metaboxes( array $meta_boxes ) {
 			        'normal'     => 'Normal',
 			    ),
 			    'default' => 'normal',
-			),
-			array(
-			    'name'    => 'Features font size',
-			    'id'      => $prefix . 'features_fontsize',
-			    'type'    => 'select',
-			    'options' => array(
-			        'small'   => 'Small',
-			        'normal'     => 'Normal',
-			    ),
-			    'default' => 'normal',
-			),
-			array(
-			    'name'    => 'Button font size',
+                'row_classes' => 'de_hundred_side de_text_side',
+        ));
+    
+        $side_group->add_field( array(
+			    'name'    => '<span class="dashicons dashicons-arrow-down"></span> Button',
 			    'id'      => $prefix . 'button_fontsize',
 			    'type'    => 'select',
 			    'options' => array(
@@ -324,52 +398,88 @@ function rpt_metaboxes( array $meta_boxes ) {
 			        'normal'     => 'Normal',
 			    ),
 			    'default' => 'normal',
-			),
-		),
-	);
-
-	return $meta_boxes;
+                'row_classes' => 'de_hundred_side de_text_side',
+        ));
+            
+        $side_group->add_field( array(
+			    'name'    => '<span class="dashicons dashicons-arrow-down"></span> Features',
+			    'id'      => $prefix . 'features_fontsize',
+			    'type'    => 'select',
+			    'options' => array(
+			        'small'   => 'Small',
+			        'normal'     => 'Normal',
+			    ),
+			    'default' => 'normal',
+                'row_classes' => 'de_hundred_side de_text_side',
+        ));
+    
+    // Help group
+    $help_group = new_cmb2_box( array(
+        'id' => $prefix . 'help_metabox',
+        'title' => '<span class="dashicons dashicons-sos"></span> Help & Support',
+        'object_types' => array( 'rpt_pricing_table' ),
+        'context' => 'side',
+        'priority' => 'high',
+        'closed' => true,
+        'row_classes' => 'de_hundred de_heading',
+    ));
+    
+        $help_group->add_field( array(
+            'name' => '',
+                'desc' => 'Find help at WPdarko.com<br/><br/><a target="_blank" href="http://wpdarko.com/support/forum/plugins/responsive-pricing-table/"><span class="dashicons dashicons-arrow-right-alt2"></span> Support forum</a><br/><a target="_blank" href="http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/"><span class="dashicons dashicons-arrow-right-alt2"></span> Documentation</a>',
+                'id'   => $prefix . 'help_desc',
+                'type' => 'title',
+                'row_classes' => 'de_hundred de_info de_info_side',
+        ));
+    
+    // PRO group
+    $pro_group = new_cmb2_box( array(
+        'id' => $prefix . 'pro_metabox',
+        'title' => '<span class="dashicons dashicons-awards"></span> PRO version',
+        'object_types' => array( 'rpt_pricing_table' ),
+        'context' => 'side',
+        'priority' => 'high',
+        'closed' => true,
+        'row_classes' => 'de_hundred de_heading',
+    ));
+    
+        $pro_group->add_field( array(
+            'name' => '',
+                'desc' => 'This free version is <strong>not</strong> limited and does <strong>not</strong> contain any ad. Check out the PRO version for more great features.<br/><br/><a target="_blank" href="http://wpdarko.com/items/responsive-pricing-table-pro"><span class="dashicons dashicons-arrow-right-alt2"></span> See plugin\'s page</a>',
+                'id'   => $prefix . 'pro_desc',
+                'type' => 'title',
+                'row_classes' => 'de_hundred de_info de_info_side',
+        ));
 }
 
-add_action( 'init', 'rpt_initialize_dkrpt_meta_boxes', 9999 );
+add_action( 'cmb2_init', 'rpt_register_plan_group_metabox' );
 
-//metabox class
-function rpt_initialize_dkrpt_meta_boxes() {
-
-	if ( ! class_exists( 'dkrpt_Meta_Box' ) )
-		require_once 'dkrpt/init.php';
-}
-
-//shortcode columns
-add_action( 'manage_rpt_pricing_table_posts_custom_column' , 'rpt_custom_columns', 10, 2 );
-
+// Shortcode column
 function rpt_custom_columns( $column, $post_id ) {
     switch ( $column ) {
 	case 'dk_shortcode' :
 		global $post;
 		$slug = '' ;
 		$slug = $post->post_name;
-   
-    
-    	    $shortcode = '<span style="border: solid 3px lightgray; background:white; padding:7px; font-size:17px; line-height:40px;">[rpt name="'.$slug.'"]</strong>';
+        $shortcode = '<span style="border: solid 3px lightgray; background:white; padding:2px 7px 5px; font-size:18px; line-height:40px;">[rpt name="'.$slug.'"]</strong>';
 	    echo $shortcode; 
 	    break;
     }
 }
 
+add_action( 'manage_rpt_pricing_table_posts_custom_column' , 'rpt_custom_columns', 10, 2 );
+
 function add_rpt_pricing_table_columns($columns) {
-    return array_merge($columns, 
-              array('dk_shortcode' => __('Shortcode'),
-                    ));
+    return array_merge($columns, array('dk_shortcode' => __('Shortcode'),));
 }
+
 add_filter('manage_rpt_pricing_table_posts_columns' , 'add_rpt_pricing_table_columns');
 
-//rpt shortcode
+// Display Shortcode
 function rpt_sc($atts) {
 	extract(shortcode_atts(array(
 		"name" => ''
 	), $atts));
-	
 	$output2 = '';
 
 global $post;    
@@ -381,8 +491,16 @@ foreach($custom_posts as $post) : setup_postdata($post);
 	$entries = get_post_meta( $post->ID, '_rpt_plan_group', true );
 		
 	$nb_entries = count($entries);;
+    
+    // Forcing original fonts?
+    $original_font = get_post_meta( $post->ID, '_rpt_original_font', true );
+    if ($original_font == true){
+        $ori_f = 'rpt_plan_ori';
+    } else {
+        $ori_f = '';
+    }
 	
-	//get font sizes
+	// Get font sizes
 	$title_fontsize = get_post_meta( $post->ID, '_rpt_title_fontsize', true );
 	if ($title_fontsize == 'small') {
 		$title_fs_class = ' rpt_sm_title';
@@ -440,17 +558,18 @@ foreach($custom_posts as $post) : setup_postdata($post);
 		$button_fs_class = '';
 	}
 	
-	//opening rpt_pricr container
+	// Opening rpt_pricr container
 	$output2 .= '<div id="rpt_pricr" class="rpt_plans rpt_'.$nb_entries .'_plans rpt_style_basic">';
 	
-	//opening rpt_pricr inner
+	// Opening rpt_pricr inner
 	$output2 .= '<div class="'. $title_fs_class . $subtitle_fs_class . $description_fs_class . $price_fs_class . $recurrence_fs_class . $features_fs_class. $button_fs_class .'">';
 	
 	foreach ($entries as $key => $plans) {
 	
 	if (!empty($plans['_rpt_recommended'])){
 		$is_reco = $plans['_rpt_recommended'];
-		//opening plan
+        
+		//Opening plan
 		if ($is_reco == true ){
 		    $reco = '<img class="rpt_recommended" src="' . plugins_url('img/rpt_recommended.png', __FILE__) . '"/>';
 		    $reco_class = 'rpt_recommended_plan';
@@ -463,9 +582,9 @@ foreach($custom_posts as $post) : setup_postdata($post);
 		$reco_class = '';
 	}
 	
-	$output2 .= '<div class="rpt_plan rpt_plan_' . $key . ' ' . $reco_class . '">';
+	$output2 .= '<div class="rpt_plan  '.$ori_f.' rpt_plan_' . $key . ' ' . $reco_class . '">';
 		
-		//title
+		// Title
 		if (!empty($plans['_rpt_title'])){
 			$output2 .= '<div class="rpt_title rpt_title_' . $key . '">';
 			
@@ -477,22 +596,22 @@ foreach($custom_posts as $post) : setup_postdata($post);
 			$output2 .= $reco . '</div>';
 		}
 		
-		//head
+		// Head
 		$output2 .= '<div class="rpt_head rpt_head_' . $key . '">';
 		
-			//recurrence
+			// Recurrence
 			if (!empty($plans['_rpt_recurrence'])){
 			    	$output2 .= '<div class="rpt_recurrence rpt_recurrence_' . $key . '">' . $plans['_rpt_recurrence'] . '</div>';
 			}
 			
-			//price
+			// Price
 			if (!empty($plans['_rpt_price'])){
 			    
 			    $output2 .= '<div class="rpt_price rpt_price_' . $key . '">';
 			    
 			    if (!empty($plans['_rpt_free'])){
 			    	if ($plans['_rpt_free'] == true ){
-			    		$output2 .= __( 'Free' );
+			    		$output2 .= '';
 			    	} else {
 				    	$output2 .= '<span class="rpt_currency"></span>' . $plans['_rpt_price'];
 			    	}		
@@ -513,17 +632,17 @@ foreach($custom_posts as $post) : setup_postdata($post);
 			    $output2 .= '</div>';
 			}
 			
-			//subtitle
+			// Subtitle
 			if (!empty($plans['_rpt_subtitle'])){
 			    	$output2 .= '<div style="color:' . $plans['_rpt_color'] . ';" class="rpt_subtitle rpt_subtitle_' . $key . '">' . $plans['_rpt_subtitle'] . '</div>';
 			    }
 			
-			//description	
+			// Description	
 			if (!empty($plans['_rpt_description'])){
 			    $output2 .= '<div class="rpt_description rpt_description_' . $key . '">' . $plans['_rpt_description'] . '</div>';
 			}
 			
-		//closing plan head
+		// Closing plan head
 		$output2 .= '</div>';
 		
 		
@@ -535,12 +654,12 @@ foreach($custom_posts as $post) : setup_postdata($post);
 			
 			$string = $plans['_rpt_features'];
 			$stringAr = explode("\n", $string);
-			$stringAr = array_filter($stringAr, 'trim'); // remove any extra \r characters left behind
+			$stringAr = array_filter($stringAr, 'trim');
 			
 			$features = '';
 			
 			foreach ($stringAr as $feature) {
-				$features[] .= strip_tags($feature,'<strong></strong><br><br/></br><img>');
+				$features[] .= strip_tags($feature,'<strong></strong><br><br/></br><img><a>');
 			}
 			
 			foreach ($features as $small_key => $feature){
@@ -574,7 +693,7 @@ foreach($custom_posts as $post) : setup_postdata($post);
 			$btn_link = '#';
 		}
 		
-		//link option
+		// Link option
 		$newcurrentwindow = get_post_meta( $post->ID, '_rpt_open_newwindow', true );
 		if ($newcurrentwindow == 'newwindow'){
 			$link_behavior = 'target="_blank"';
@@ -582,37 +701,34 @@ foreach($custom_posts as $post) : setup_postdata($post);
 			$link_behavior = 'target="_self"';
 		}
 		
-		//foot
+		// Foot
         if (!empty($plans['_rpt_btn_text'])){
 		  $output2 .= '<a '. $link_behavior .' href="' . $btn_link . '" style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
         } else {
           $output2 .= '<a '. $link_behavior .' style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
         }
+
+        $output2 .= $btn_text;
 		
-			//closing foot
-			$output2 .= $btn_text;
-		
-		//closing foot
+		// Closing foot
 		$output2 .= '</a>';
 		
-	$output2 .= '</div>';
-	
+    $output2 .= '</div>';
+
 	}
 	
-	//closing rpt_inner
+	// Closing rpt_inner
 	$output2 .= '</div>';
 	
-	//closing rpt_container
+	// Closing rpt_container
 	$output2 .= '</div>';
 	
 	$output2 .= '<div style="clear:both;"></div>';
   	
-  	
   endforeach; wp_reset_query(); 
-	
   return $output2;
 
 }
-add_shortcode("rpt", "rpt_sc");
 
+add_shortcode("rpt", "rpt_sc");
 ?>

@@ -73,6 +73,14 @@ The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) gives 
 5. Finding the shortcode (admin view)
 
 == Changelog ==
+= 4.0 =
+* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher
+* New admin interface (new framework)
+* You can now add links in the feature area using the <a> tag (user request)
+* You can now force the plugin's original fonts (user request)
+* Added docs and support forums links
+* Much cleaner code
+
 = 3.5.1 =
 * SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
 * You can now add pictures/icons in the feature area using the <img> tag
