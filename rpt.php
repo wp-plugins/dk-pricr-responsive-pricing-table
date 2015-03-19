@@ -421,6 +421,14 @@ function rpt_register_plan_group_metabox() {
                 'row_classes' => 'de_hundred_side de_text_side',
         ));
     
+    $main_group->add_field( array(
+		'name'    => '<span style="font-weight:400; color:#8a7463;">Up to 5 plans</span>',
+		'desc' => '<span class="dashicons dashicons-flag"></span> You can add up to 5 plans per Pricing Table. <br/> Adding more than that will result in display issues.',
+		'id'      => $prefix . 'max',
+		'type'    => 'title',
+        'row_classes' => 'de_hundred de_instructions',
+	) );
+    
     // Help group
     $help_group = new_cmb2_box( array(
         'id' => $prefix . 'help_metabox',
