@@ -89,6 +89,7 @@ if ( file_exists( dirname( __FILE__ ) . '/cmb2/init.php' ) ) {
 // Registering Pricing Table metaboxes
 function rpt_register_plan_group_metabox() {
     
+    $plan_skeleton_url = plugins_url('dk-pricr-responsive-pricing-table/img/skeleton_plan.png');
     $prefix = '_rpt_';
    
     // Tables group
@@ -426,7 +427,7 @@ function rpt_register_plan_group_metabox() {
     
         $help_group->add_field( array(
             'name' => '',
-                'desc' => 'Find help at WPdarko.com<br/><br/><a target="_blank" href="http://wpdarko.com/support/forum/plugins/responsive-pricing-table/"><span class="dashicons dashicons-arrow-right-alt2"></span> Support forum</a><br/><a target="_blank" href="http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/"><span class="dashicons dashicons-arrow-right-alt2"></span> Documentation</a>',
+                'desc' => 'Plan\'s skeleton<br/><img src="'.$plan_skeleton_url.'"/><br/>Find help at WPdarko.com<br/><br/><a target="_blank" href="http://wpdarko.com/support/forum/plugins/responsive-pricing-table/"><span class="dashicons dashicons-arrow-right-alt2"></span> Support forum</a><br/><a target="_blank" href="http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/"><span class="dashicons dashicons-arrow-right-alt2"></span> Documentation</a>',
                 'id'   => $prefix . 'help_desc',
                 'type' => 'title',
                 'row_classes' => 'de_hundred de_info de_info_side',
