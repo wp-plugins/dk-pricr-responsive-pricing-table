@@ -101,7 +101,7 @@ function rpt_register_plan_group_metabox() {
     
     $main_group->add_field( array(
 		'name'    => '<span style="font-weight:400;">Getting started / Instructions</span>',
-		'desc' => 'Edit your plans (see below), reorder them and play around with the settings on the right. If you have trouble understanding how this works, click the "Help & Support tab on the right."',
+		'desc' => 'Edit your plans (see below), add more (up to 5), reorder them and play around with the settings on the right. If you have trouble understanding how this works, click the "Help & Support tab on the right."',
 		'id'      => $prefix . 'instructions',
 		'type'    => 'title',
         'row_classes' => 'de_hundred de_instructions',
