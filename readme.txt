@@ -79,6 +79,7 @@ The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) gives 
 * You can now add links in the feature area using the <a> tag (user request)
 * You can now force the plugin's original fonts (user request)
 * Added docs and support forums links
+* Added instructions
 * Much cleaner code
 
 = 3.5.1 =

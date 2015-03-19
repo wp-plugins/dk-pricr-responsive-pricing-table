@@ -95,9 +95,17 @@ function rpt_register_plan_group_metabox() {
     // Tables group
     $main_group = new_cmb2_box( array(
         'id' => $prefix . 'plan_metabox',
-        'title' => '<span class="dashicons dashicons-welcome-add-page"></span> Pricing Table Plans',
+        'title' => '<span class="dashicons dashicons-welcome-add-page"></span> Pricing Table Plans <span style="color:#8a7463; font-weight:400; float:right; padding-right:14px;"><span class="dashicons dashicons-lock"></span> Free version</span>',
         'object_types' => array( 'rpt_pricing_table' ),
     ));
+    
+    $main_group->add_field( array(
+		'name'    => '<span style="font-weight:400;">Getting started / Instructions</span>',
+		'desc' => 'Edit your plans (see below), reorder them and play around with the settings on the right. If you have trouble understanding how this works, click the "Help & Support tab on the right."',
+		'id'      => $prefix . 'instructions',
+		'type'    => 'title',
+        'row_classes' => 'de_hundred de_instructions',
+	) );
 
         $rpt_plan_group = $main_group->add_field( array(
             'id' => $prefix . 'plan_group',
@@ -260,7 +268,6 @@ function rpt_register_plan_group_metabox() {
                 'name' => '',
                 'id'   => $prefix . 'sep_header',
                 'type' => 'title',
-                'row_classes' => 'de_hundred',
             ));
     
     // Settings group
