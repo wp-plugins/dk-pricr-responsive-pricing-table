@@ -7,7 +7,7 @@ Version: 4.0
 Author: WP Darko
 Author URI: http://wpdarko.com
 License: GPL2
-*/
+ */
 
 // Check for the PRO version
 function rpt_free_pro_check() {
