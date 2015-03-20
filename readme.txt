@@ -73,6 +73,10 @@ The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) gives 
 5. Finding the shortcode (admin view)
 
 == Changelog ==
+= 4.0.1 =
+* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher
+* Fixed a bug when removing currency sign (e.g.. for free plans)
+
 = 4.0 =
 * SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher
 * New admin interface (new framework)
