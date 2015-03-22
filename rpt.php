@@ -466,6 +466,25 @@ function rpt_register_plan_group_metabox() {
                 'type' => 'title',
                 'row_classes' => 'de_hundred de_info de_info_side',
         ));
+    
+    // Shortcode group
+    $show_group = new_cmb2_box( array(
+        'id' => $prefix . 'shortcode_metabox',
+        'title' => '<span class="dashicons dashicons-visibility"></span> Display my Tabs',
+        'object_types' => array( 'rpt_pricing_table' ),
+        'context' => 'side',
+        'priority' => 'low',
+        'closed' => false,
+        'row_classes' => 'de_hundred de_heading',
+    ));
+    
+        $show_group->add_field( array(
+            'name' => '',
+            'desc' => 'To display your Tabs on your site, copy-paste the Tab Set\'s [Shortcode] in your post/page. <br/><br/>You can find this shortcode by clicking on the "Tab Sets" tab in the menu on the left.',
+            'id'   => $prefix . 'short_desc',
+            'type' => 'title',
+            'row_classes' => 'de_hundred de_info de_info_side',
+        ));
 }
 
 add_action( 'cmb2_init', 'rpt_register_plan_group_metabox' );
@@ -511,7 +530,7 @@ foreach($custom_posts as $post) : setup_postdata($post);
     // Forcing original fonts?
     $original_font = get_post_meta( $post->ID, '_rpt_original_font', true );
     if ($original_font == true){
-        $ori_f = 'rpt_plan_ori';
+        $ori_f = 'rpt_tab_ori';
     } else {
         $ori_f = '';
     }
