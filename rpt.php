@@ -207,14 +207,14 @@ function rpt_register_plan_group_metabox() {
 				'type' => 'textarea',
                 'attributes'  => array(
                     'placeholder' => 'one per line',
-                    'rows' => 10,
+                    'rows' => 13,
                 ),
                 'row_classes' => 'de_first de_fifty de_textarea de_input',
             ));
             
             $main_group->add_group_field( $rpt_plan_group, array(
                 'name' => 'Tips & Tricks',
-                'desc' => '<span class="dashicons dashicons-yes"></span> Add images (not recommended)<br/><span style="color:#bbb;">&lt;img src="http://yoursite.com/yourimage.png"/&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Add links<br/><span style="color:#bbb;">&lt;a href="http://yoursite.com"&gt;Go to yoursite.com&lt;/a&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Add bold text<br/><span style="color:#bbb;">&lt;strong&gt;Something <strong>important</strong>&lt;/strong&gt;</span><br/><br/><span style="color:#8a7463;"><span class="dashicons dashicons-lock"></span> PRO Add Tooltips<br/>Tooltips are info bubbles for your features.</span>',
+                'desc' => '<span class="dashicons dashicons-yes"></span> Add images (not recommended)<br/><span style="color:#bbb;">&lt;img src="http://yoursite.com/yourimage.png"/&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Add links<br/><span style="color:#bbb;">&lt;a href="http://yoursite.com"&gt;Go to yoursite.com&lt;/a&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Add bold text<br/><span style="color:#bbb;">&lt;strong&gt;Something <strong>important</strong>&lt;/strong&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Show feature as unavailable with "-n"<br/><span style="color:#bbb;">-nMy feature</span><br/><br/><span style="color:#8a7463;"><span class="dashicons dashicons-lock"></span> PRO Add Tooltips<br/>Tooltips are info bubbles for your features.</span>',
                 'id'   => $prefix . 'features_desc',
                 'type' => 'title',
                 'row_classes' => 'de_fifty de_info',
@@ -470,7 +470,7 @@ function rpt_register_plan_group_metabox() {
     // Shortcode group
     $show_group = new_cmb2_box( array(
         'id' => $prefix . 'shortcode_metabox',
-        'title' => '<span class="dashicons dashicons-visibility"></span> Display my Tabs',
+        'title' => '<span class="dashicons dashicons-visibility"></span> Display my Pricing Table',
         'object_types' => array( 'rpt_pricing_table' ),
         'context' => 'side',
         'priority' => 'low',
@@ -480,7 +480,7 @@ function rpt_register_plan_group_metabox() {
     
         $show_group->add_field( array(
             'name' => '',
-            'desc' => 'To display your Tabs on your site, copy-paste the Tab Set\'s [Shortcode] in your post/page. <br/><br/>You can find this shortcode by clicking on the "Tab Sets" tab in the menu on the left.',
+            'desc' => 'To display your Pricing Table on your site, copy-paste the Pricing Table\'s [Shortcode] in your post/page. <br/><br/>You can find this shortcode by clicking on the "Pricing Tables" tab in the menu on the left.',
             'id'   => $prefix . 'short_desc',
             'type' => 'title',
             'row_classes' => 'de_hundred de_info de_info_side',
