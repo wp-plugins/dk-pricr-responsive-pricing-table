@@ -214,7 +214,7 @@ function rpt_register_plan_group_metabox() {
             
             $main_group->add_group_field( $rpt_plan_group, array(
                 'name' => 'Tips & Tricks',
-                'desc' => '<span class="dashicons dashicons-yes"></span> Add images (not recommended)<br/><span style="color:#bbb;">&lt;img src="http://yoursite.com/yourimage.png"/&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Add links<br/><span style="color:#bbb;">&lt;a href="http://yoursite.com"&gt;Go to yoursite.com&lt;/a&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Add bold text<br/><span style="color:#bbb;">&lt;strong&gt;Something <strong>important</strong>&lt;/strong&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Show feature as unavailable with "-n"<br/><span style="color:#bbb;">-nMy feature</span><br/><br/><span style="color:#8a7463;"><span class="dashicons dashicons-lock"></span> PRO Add Tooltips<br/>Tooltips are info bubbles for your features.</span>',
+                'desc' => '<span class="dashicons dashicons-yes"></span> Add images (not recommended)<br/><span style="color:#bbb;">&lt;img src="http://yoursite.com/yourimage.png"/&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Add links<br/><span style="color:#bbb;">&lt;a href="http://yoursite.com"&gt;Go to yoursite.com&lt;/a&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Add bold text<br/><span style="color:#bbb;">&lt;strong&gt;Something <strong>important</strong>&lt;/strong&gt;</span><br/><br/><span class="dashicons dashicons-yes"></span> Make feature unavailable with "-n"<br/><span style="color:#bbb;">-nMy feature</span><br/><br/><span style="color:#8a7463;"><span class="dashicons dashicons-lock"></span> PRO Add Tooltips<br/>Tooltips are info bubbles for your features.</span>',
                 'id'   => $prefix . 'features_desc',
                 'type' => 'title',
                 'row_classes' => 'de_fifty de_info',
@@ -461,7 +461,7 @@ function rpt_register_plan_group_metabox() {
     
         $pro_group->add_field( array(
             'name' => '',
-                'desc' => 'This free version is <strong>not</strong> limited and does <strong>not</strong> contain any ad. Check out the PRO version for more great features.<br/><br/><a target="_blank" href="http://wpdarko.com/items/responsive-pricing-table-pro"><span class="dashicons dashicons-arrow-right-alt2"></span> See plugin\'s page</a>',
+                'desc' => 'This free version is <strong>not</strong> limited and does <strong>not</strong> contain any ad. Check out the PRO version for more great features.<br/><br/><a target="_blank" href="http://wpdarko.com/items/responsive-pricing-table-pro"><span class="dashicons dashicons-arrow-right-alt2"></span> See plugin\'s page</a><br/><br/><span style="font-size:13px; color:#88acbc;">Coupon code <strong>7832949</strong> (20% OFF).</span>',
                 'id'   => $prefix . 'pro_desc',
                 'type' => 'title',
                 'row_classes' => 'de_hundred de_info de_info_side',
