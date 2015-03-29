@@ -738,12 +738,12 @@ foreach($custom_posts as $post) : setup_postdata($post);
 		
 		// Foot
         if (!empty($plans['_rpt_btn_text'])){
-		  $output2 .= '<a '. $link_behavior .' href="' . $btn_link . '" style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
+		  $output2 .= '<a '. $link_behavior .' href="' . do_shortcode($btn_link) . '" style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
         } else {
           $output2 .= '<a '. $link_behavior .' style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
         }
 
-        $output2 .= $btn_text;
+        $output2 .= do_shortcode($btn_text);
 		
 		// Closing foot
 		$output2 .= '</a>';
