@@ -3,7 +3,7 @@
 Plugin Name: Responsive Pricing Table
 Plugin URI: http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/
 Description: A responsive, easy and elegant way to present your offer to your visitors. Just create a new pricing table (custom type) and copy-paste the shortcode into your posts/pages. Find support and information on the <a href="http://wpdarko.com/responsive-pricing-table/">plugin's page</a>. This free version is NOT limited and does not contain any ad. Check out the <a href='http://wpdarko.com/items/responsive-pricing-table-pro/'>PRO version</a> for more great features.
-Version: 4.0.2
+Version: 4.1
 Author: WP Darko
 Author URI: http://wpdarko.com
 License: GPL2
@@ -246,6 +246,26 @@ function rpt_register_plan_group_metabox() {
                     'placeholder' => 'eg. http://anything.com',
                 ),
                 'row_classes' => 'de_fifty de_text de_input',
+            ));
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => '<span class="dashicons dashicons-media-code"></span> Or use a Custom button',
+                'id'   => $prefix . 'btn_custom_btn',
+                'type' => 'textarea',
+                'sanitization_cb' => false,
+                'attributes'  => array(
+                    'placeholder' => 'Paste any button code here (Stripe, Paypal...)',
+                ),
+                'row_classes' => 'de_first de_fifty de_textarea de_text de_input',
+            ));
+    
+    
+            $main_group->add_group_field( $rpt_plan_group, array(
+                'name' => 'What\'s a custom button?',
+                'desc' => '<span class="dashicons dashicons-editor-help"></span> Custom buttons are provided by third-party payment plateforms to allow direct redirection to the payment page. Paypal, Stripe as well as many other companies will generate buying buttons for you. <br/><br/><span class="dashicons dashicons-admin-generic"></span> If you want your Pricing plan\'s footer to be replaced by a custom button, copy-paste the button code in this box. This will override the default button settings.<br/><br/>We do <strong>not</strong> recommend doing this as it may not always go well with the design.',
+                'id'   => $prefix . 'custom_button_desc',
+                'type' => 'title',
+                'row_classes' => 'de_fifty de_info',
             ));
             
             $main_group->add_group_field( $rpt_plan_group, array(
@@ -736,17 +756,24 @@ foreach($custom_posts as $post) : setup_postdata($post);
 			$link_behavior = 'target="_self"';
 		}
 		
-		// Foot
-        if (!empty($plans['_rpt_btn_text'])){
-		  $output2 .= '<a '. $link_behavior .' href="' . do_shortcode($btn_link) . '" style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
+        // Check for custom button
+        if (!empty($plans['_rpt_btn_custom_btn'])){
+            $output2 .= '<div class="rpt_custom_btn" style="border-bottom-left-radius:5px; border-bottom-right-radius:5px; text-align:center; padding:16px 20px; background-color:'.$plans['_rpt_color'].'">';
+                $output2 .= $plans['_rpt_btn_custom_btn'];
+            $output2 .= '</div>';
         } else {
-          $output2 .= '<a '. $link_behavior .' style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
+		  // Default footer
+            if (!empty($plans['_rpt_btn_text'])){
+		    $output2 .= '<a '. $link_behavior .' href="' . do_shortcode($btn_link) . '" style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
+            } else {
+              $output2 .= '<a '. $link_behavior .' style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
+            }
+    
+            $output2 .= do_shortcode($btn_text);
+		  
+		  // Closing default footer
+		  $output2 .= '</a>';
         }
-
-        $output2 .= do_shortcode($btn_text);
-		
-		// Closing foot
-		$output2 .= '</a>';
 		
     $output2 .= '</div>';
 

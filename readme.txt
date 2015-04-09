@@ -74,6 +74,10 @@ The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) gives 
 5. Finding the shortcode (admin view)
 
 == Changelog ==
+= 4.1 =
+* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher
+* Added support for custom buttons (Paypal, Stripe etc…)
+
 = 4.0.2 =
 * SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher
 * Fixed a conflict between the shortcode and custom themes.
