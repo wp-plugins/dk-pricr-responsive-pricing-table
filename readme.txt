@@ -1,6 +1,6 @@
 === Responsive Pricing Table ===
 Contributors: spwebguy
-Tags: pricing table, pricing tables, prices, plans, offer, shortcode, easy, price, responsive, pricing, tables, flexible, pricing plan
+Tags: pricing table, pricing tables, prices, pricing, plans, offer, shortcode, easy, price, responsive, pricing, tables, flexible, pricing plan
 Requires at least: 3.6
 Tested up to: 4.1.1
 Stable tag: trunk
