@@ -79,107 +79,106 @@ Find help in [our forums](http://wpdarko.com/support/forum/plugins/responsive-pr
 
 == Changelog ==
 = 4.1 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher
+* SAFE UPDATE: from 3.0 or higher
 * Added support for custom buttons (Paypal, Stripe etc…)
 
 = 4.0.2 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher
+* SAFE UPDATE: from 3.0 or higher
 * Fixed a conflict between the shortcode and custom themes.
 
 = 4.0.1 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher
-* Fixed a bug when removing currency sign (e.g.. for free plans)
+* SAFE UPDATE: from 3.0 or higher
+* Fixed a bug when removing currency sign
 
 = 4.0 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher
+* SAFE UPDATE: from 3.0 or higher
 * New admin interface (new framework)
-* You can now add links in the feature area using the <a> tag (user request)
-* You can now force the plugin's original fonts (user request)
+* Allow adding links in the feature area using the a tag (user request)
+* Allow forcing the plugin's original fonts (user request)
 * Added docs and support forums links
 * Added instructions
-* Much cleaner code
+* Cleaning code
 
 = 3.5.1 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
-* You can now add pictures/icons in the feature area using the <img> tag
+* SAFE UPDATE: from 3.0 or higher 
+* Allowing pictures/icons in the feature area using the img tag
 
 = 3.5 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
-* You can now put this shortcode inside another one if you want (nested shortcodes)
+* SAFE UPDATE: from 3.0 or higher 
+* Added nested shortcode support
 
 = 3.4.2 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
+* SAFE UPDATE: from 3.0 or higher 
 * Admin panel small bug fix
 
 = 3.4.1 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
+* SAFE UPDATE: from 3.0 or higher 
 * Minor bug fix
 
 = 3.4.0 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
-* Possible to hide the currency symbol
-* Allow pricing tables with no button
-* Allow special characters in the button link (third party sites/payments)
-* Allow <br> tags in the features (adjust line breaks to your liking)
-* Allow <br> tags in the description
-* Allow <br> tags in the subtitle
+* SAFE UPDATE: from 3.0 or higher 
+* Allowing hiding the currency symbol
+* Allowing pricing tables with no button
+* Allowing br tags in the features (adjust line breaks to your liking)
+* Allowing br tags in the description
+* Allowing br tags in the subtitle
 
 = 3.3.0 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
+* SAFE UPDATE: from 3.0 or higher 
 * Added a new font-size preset for the price element
 * All font-sizes are more accurate and will better fit on your pages
 * Fixed styling issues for small screens 
 
 = 3.2.4 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
-* Solved conflict when generating shortcode
+* SAFE UPDATE: from 3.0 or higher 
+* Fixed conflict when generating shortcode
 
 = 3.2.3 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
+* SAFE UPDATE: from 3.0 or higher 
 * Fixed icon position issue
-* Prepared for WordPress 4.1
+* Preparing for WordPress 4.1
 
 = 3.2.2 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
+* SAFE UPDATE: from 3.0 or higher 
 * Preventing plugin conflicts
 * Minor bug fixes
 
 = 3.2.1 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
-* Allows automatic recovery of all pricing tables when switching to PRO version
+* SAFE UPDATE: from 3.0 or higher 
+* Automatic recovery of all pricing tables when switching to PRO version
 
 = 3.2 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 or higher 
-* CSS bug fixes (icons/titles)
+* SAFE UPDATE: from 3.0 or higher 
+* CSS bug fixes - icons/titles
 
 = 3.1 =
-* SAFE UPDATE: No data loss for those upgrading from version 3.0 
+* SAFE UPDATE: from 3.0 
 * Preventing plugin conflicts
 
 = 3.0 =
-* WARNING: FOR THOSE WHO UPGRADE FROM AN EARLIER VERSION TO THIS VERSION, YOU WILL NEED TO RE-CREATE YOUR PRICING TABLES! 
-* Cleaner plugin admin
-* Cleaner code
+* WARNING: YOU’LL NEED TO RE-CREATE YOUR PRICING TABLES 
+* Cleaning plugin admin
+* Cleaning code
 
 = 2.3 =
-* SAFE UPDATE: No data loss for those upgrading from version 2.0 or higher
-* Modified CSS - fits better on small-width websites (or websites with sidebars) 
+* SAFE UPDATE: from 2.0 or higher
+* CSS bug fixes - better on small-width websites (or websites with sidebars) 
 
 = 2.2 =
-* SAFE UPDATE: No data loss for those upgrading from version 2.0 or higher
+* SAFE UPDATE: from 2.0 or higher
 * Links behavior can be changed 
 
 = 2.1 =
-* SAFE UPDATE: No data loss for those upgrading from version 2.0
-* Font sizes can be changed in case some word doesn’t fit
+* SAFE UPDATE: from 2.0
+* Font sizes can be changed in case some words don’t fit
 
 = 2.0 =
-* WARNING: FOR THOSE WHO UPGRADE FROM AN EARLIER VERSION TO THIS VERSION, YOU WILL NEED TO RE-CREATE YOUR PRICING TABLES! 
-* Use custom post type feature to create pricing tables
-* Plans can be set to Free
-* Plans can be set to Recommended
+* WARNING: YOU’LL NEED TO RE-CREATE YOUR PRICING TABLES 
+* Using WordPress’ custom post type feature to create Pricing Tables
+* Plans can be marked as Free
+* Plans can be marked as Recommended
 * Currency can be changed
 * Much nicer look
 
 = 1.0 =
-* Simple pricing table shortcode
+* Initial release (yay!)
