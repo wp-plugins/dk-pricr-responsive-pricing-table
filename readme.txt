@@ -12,29 +12,30 @@ A responsive and elegant way to present your offer to your visitors. Create a ne
 == Description ==
 This plugin adds a “Pricing Tables” tab in the admin panel which allows you to create pricing tables for your website the easy way. You can quickly add features to your different plans, choose a color (as well as many other options) and display your price table anywhere with a simple shortcode. What you see is what you get, and it’s totally free.
 
-= Rate and review =
-We love to hear from our users, please take the time to rate this plugin and tell us what you think about it!
-
 = No limitation for the Free version =
 The Free version of the Responsive Pricing Table plugin is **not limited** and does not contain any ad.    
 
 The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) gives you access to two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features.
 
-= Author =
-[WP Darko](http://wpdarko.com/) is one more great place to find exclusive WordPress themes & plugins.
-
-= Available fields/options =
+= Available fields =
 * Title
 * Subtitle
 * Description
 * Price
-* Currency
 * Recurrence (“one-time fee”, “per month”)
+* Small icon
 * Features (as many as you want)
 * Button URL and text
-* Links behaviour
-* Color
-* Font size 
+* Custom buttons (Stripe, Paypal…)
+* Color (per plan)
+
+= Available settings =
+* Recommended plan (highlight any plan)
+* Remove currency sign (eg. for free plans)
+* Change currency sign (€, £, ¥, $…)
+* Links behavior (current/new window)
+* Force original fonts
+* Font size presets
 
 = Usage =
 Go to [the plugin's documentation](http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/) if you need more information on how to use this plugin.
@@ -53,25 +54,28 @@ Find help in [our forums](http://wpdarko.com/support/forum/plugins/responsive-pr
 = Usage =
 Go to [the plugin's documentation](http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/) for information on how to use it.
 
-== Frequently Asked Questions ==
-
-= Example & Support =
-Go to [the plugin's documentation](http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/) for information on how to use this plugin.
-
-= Where can I get help with this plugin? =
+= Support =
 Find help in [our forums](http://wpdarko.com/support/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
 
+== Frequently Asked Questions ==
 = No limitation for the Free version =
 The free version of the Responsive Pricing Table plugin is **not limited** and does not contain any ad.    
 
 The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) gives you access to two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features.
+
+= Usage =
+Go to [the plugin's documentation](http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/) for information on how to use it.
+
+= Support =
+Find help in [our forums](http://wpdarko.com/support/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
 
 == Screenshots ==
 1. Displaying the pricing table (front view)
 2. Displaying the pricing table 2 (front view)
 3. Creating a pricing table 1 (admin view)
 4. Creating a pricing table 2 (admin view)
-5. Finding the shortcode (admin view)
+5. Setting panel (admin view)
+6. Finding the shortcode (admin view)
 
 == Changelog ==
 = 4.1 =
