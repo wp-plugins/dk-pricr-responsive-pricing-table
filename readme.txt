@@ -78,6 +78,10 @@ Find help in [our forums](http://wpdarko.com/support/forum/plugins/responsive-pr
 6. Finding the shortcode (admin view)
 
 == Changelog ==
+= 4.1.1 =
+* SAFE UPDATE: from 3.0 or higher
+* Fixed unwanted shortcode title output 
+
 = 4.1 =
 * SAFE UPDATE: from 3.0 or higher
 * Added support for custom buttons (Paypal, Stripe etc…)
