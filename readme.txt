@@ -38,10 +38,10 @@ The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) gives 
 * Font size presets
 
 = Usage =
-Go to [the plugin's documentation](http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/) if you need more information on how to use this plugin.
+Go to [the plugin's documentation](https://wpdarko.zendesk.com/hc/en-us/articles/206303517-Get-started-with-the-Responsive-Pricing-Table-plugin) if you need more information on how to use this plugin.
 
 = Support =
-Find help in [our forums](http://wpdarko.com/support/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
+Find help in [our forums](http://wpdarko.com/support/) for this plugin (we’ll answer you fast, promise).
 
 == Installation ==
 
@@ -52,10 +52,10 @@ Find help in [our forums](http://wpdarko.com/support/forum/plugins/responsive-pr
 4. Activate the plugin
 
 = Usage =
-Go to [the plugin's documentation](http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/) for information on how to use it.
+Go to [the plugin's documentation](https://wpdarko.zendesk.com/hc/en-us/articles/206303517-Get-started-with-the-Responsive-Pricing-Table-plugin) for information on how to use it.
 
 = Support =
-Find help in [our forums](http://wpdarko.com/support/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
+Find help in [our forums](http://wpdarko.com/support/) for this plugin (we’ll answer you fast, promise).
 
 == Frequently Asked Questions ==
 = No limitation for the Free version =
@@ -64,10 +64,10 @@ The free version of the Responsive Pricing Table plugin is **not limited** and d
 The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) gives you access to two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features.
 
 = Usage =
-Go to [the plugin's documentation](http://wpdarko.com/support/documentation/get-started-responsive-pricing-table/) for information on how to use it.
+Go to [the plugin's documentation](https://wpdarko.zendesk.com/hc/en-us/articles/206303517-Get-started-with-the-Responsive-Pricing-Table-plugin) for information on how to use it.
 
 = Support =
-Find help in [our forums](http://wpdarko.com/support/forum/plugins/responsive-pricing-table/) for this plugin (we’ll answer you fast, promise).
+Find help in [our forums](http://wpdarko.com/support/) for this plugin (we’ll answer you fast, promise).
 
 == Screenshots ==
 1. Displaying the pricing table (front view)
