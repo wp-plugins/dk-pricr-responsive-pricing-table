@@ -787,7 +787,7 @@ foreach($custom_posts as $post) : setup_postdata($post);
 	
 	$output2 .= '<div style="clear:both;"></div>';
   	
-  endforeach; 
+  endforeach; wp_reset_postdata();
   return $output2;
 
 }
