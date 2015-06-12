@@ -550,7 +550,7 @@ foreach($custom_posts as $post) : setup_postdata($post);
     // Forcing original fonts?
     $original_font = get_post_meta( $post->ID, '_rpt_original_font', true );
     if ($original_font == true){
-        $ori_f = 'rpt_tab_ori';
+        $ori_f = 'rpt_plan_ori';
     } else {
         $ori_f = '';
     }
