@@ -2,7 +2,7 @@
 Contributors: spwebguy
 Tags: pricing table, pricing tables, prices, pricing, plans, offer, shortcode, price, responsive, pricing, tables, pricing plan
 Requires at least: 3.6
-Tested up to: 4.2.3
+Tested up to: 4.3
 Stable tag: trunk
 License: GPL2
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -13,9 +13,14 @@ A responsive and elegant way to present your offer to your visitors. Create a ne
 This plugin adds a “Pricing Tables” tab in the admin panel which allows you to create pricing tables for your website the easy way. You can quickly add features to your different plans, choose a color (as well as many other options) and display your price table anywhere with a simple shortcode. What you see is what you get, and it’s totally free.
 
 = No limitation for the Free version =
-The Free version of the Responsive Pricing Table plugin is **not limited** and does not contain any ad.    
+The Free version of the Responsive Pricing Table plugin is **not limited**.
 
-The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) gives you access to two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features.
+The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) adds two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features.
+
+= Fully translatable =
+* POT files included (/lang/)
+* French translation included
+* Spanish translation included
 
 = Available fields =
 * Title
@@ -59,9 +64,14 @@ Find help in [our forums](http://wpdarko.com/support/) for this plugin (we’ll 
 
 == Frequently Asked Questions ==
 = No limitation for the Free version =
-The free version of the Responsive Pricing Table plugin is **not limited** and does not contain any ad.    
+The free version of the Responsive Pricing Table plugin is **not limited**.
 
-The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) gives you access to two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features.
+The [PRO version](http://wpdarko.com/items/responsive-pricing-table-pro/) adds two new features: **skins** and **tooltips**. Skins are new designs for your pricing tables, tooltips are “info bubbles” that you can easily add to your features.
+
+= Fully translatable =
+* POT files included (/lang/)
+* French translation included
+* Spanish translation included
 
 = Usage =
 Go to [the plugin's documentation](https://wpdarko.zendesk.com/hc/en-us/articles/206303517-Get-started-with-the-Responsive-Pricing-Table-plugin) for information on how to use it.
@@ -78,24 +88,31 @@ Find help in [our forums](http://wpdarko.com/support/) for this plugin (we’ll 
 6. Finding the shortcode (admin view)
 
 == Changelog ==
+= 4.2.1 =
+* Fixed shortcode
+
+= 4.2 =
+* Plugin is now translation ready
+* Added French translation
+* Added Spanish translation
+* Added shortcodes in custom button field
+* Fixed a few PHP errors
+* Cleaner edit screen
+* Security update
+
 = 4.1.1 =
-* SAFE UPDATE: from 3.0 or higher
-* Fixed unwanted shortcode title output 
+* Fixed unwanted shortcode title output
 
 = 4.1 =
-* SAFE UPDATE: from 3.0 or higher
 * Added support for custom buttons (Paypal, Stripe etc…)
 
 = 4.0.2 =
-* SAFE UPDATE: from 3.0 or higher
 * Fixed a conflict between the shortcode and custom themes.
 
 = 4.0.1 =
-* SAFE UPDATE: from 3.0 or higher
 * Fixed a bug when removing currency sign
 
 = 4.0 =
-* SAFE UPDATE: from 3.0 or higher
 * New admin interface (new framework)
 * Allow adding links in the feature area using the a tag (user request)
 * Allow forcing the plugin's original fonts (user request)
@@ -104,23 +121,18 @@ Find help in [our forums](http://wpdarko.com/support/) for this plugin (we’ll 
 * Cleaning code
 
 = 3.5.1 =
-* SAFE UPDATE: from 3.0 or higher 
 * Allowing pictures/icons in the feature area using the img tag
 
 = 3.5 =
-* SAFE UPDATE: from 3.0 or higher 
 * Added nested shortcode support
 
 = 3.4.2 =
-* SAFE UPDATE: from 3.0 or higher 
 * Admin panel small bug fix
 
 = 3.4.1 =
-* SAFE UPDATE: from 3.0 or higher 
 * Minor bug fix
 
 = 3.4.0 =
-* SAFE UPDATE: from 3.0 or higher 
 * Allowing hiding the currency symbol
 * Allowing pricing tables with no button
 * Allowing br tags in the features (adjust line breaks to your liking)
@@ -128,56 +140,45 @@ Find help in [our forums](http://wpdarko.com/support/) for this plugin (we’ll 
 * Allowing br tags in the subtitle
 
 = 3.3.0 =
-* SAFE UPDATE: from 3.0 or higher 
 * Added a new font-size preset for the price element
 * All font-sizes are more accurate and will better fit on your pages
-* Fixed styling issues for small screens 
+* Fixed styling issues for small screens
 
 = 3.2.4 =
-* SAFE UPDATE: from 3.0 or higher 
 * Fixed conflict when generating shortcode
 
 = 3.2.3 =
-* SAFE UPDATE: from 3.0 or higher 
 * Fixed icon position issue
 * Preparing for WordPress 4.1
 
 = 3.2.2 =
-* SAFE UPDATE: from 3.0 or higher 
 * Preventing plugin conflicts
 * Minor bug fixes
 
 = 3.2.1 =
-* SAFE UPDATE: from 3.0 or higher 
 * Automatic recovery of all pricing tables when switching to PRO version
 
 = 3.2 =
-* SAFE UPDATE: from 3.0 or higher 
 * CSS bug fixes - icons/titles
 
 = 3.1 =
-* SAFE UPDATE: from 3.0 
 * Preventing plugin conflicts
 
 = 3.0 =
-* WARNING: YOU’LL NEED TO RE-CREATE YOUR PRICING TABLES 
+* WARNING: If updating from an earlier version, pricing tables will need to be recreated.
 * Cleaning plugin admin
 * Cleaning code
 
 = 2.3 =
-* SAFE UPDATE: from 2.0 or higher
-* CSS bug fixes - better on small-width websites (or websites with sidebars) 
+* CSS bug fixes - better on small-width websites (or websites with sidebars)
 
 = 2.2 =
-* SAFE UPDATE: from 2.0 or higher
-* Links behavior can be changed 
+* Links behavior can be changed
 
 = 2.1 =
-* SAFE UPDATE: from 2.0
 * Font sizes can be changed in case some words don’t fit
 
 = 2.0 =
-* WARNING: YOU’LL NEED TO RE-CREATE YOUR PRICING TABLES 
 * Using WordPress’ custom post type feature to create Pricing Tables
 * Plans can be marked as Free
 * Plans can be marked as Recommended
@@ -185,4 +186,4 @@ Find help in [our forums](http://wpdarko.com/support/) for this plugin (we’ll 
 * Much nicer look
 
 = 1.0 =
-* Initial release (yay!)
+* Initial release
