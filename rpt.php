@@ -240,175 +240,176 @@ foreach($custom_posts as $post) : setup_postdata($post);
 	// Opening rpt_pricr inner
 	$output2 .= '<div class="'. $title_fs_class . $subtitle_fs_class . $description_fs_class . $price_fs_class . $recurrence_fs_class . $features_fs_class. $button_fs_class .'">';
 
-	foreach ($entries as $key => $plans) {
+    if (is_array($entries) || is_object($entries))
+    	foreach ($entries as $key => $plans) {
 
-	if (!empty($plans['_rpt_recommended'])){
-		$is_reco = $plans['_rpt_recommended'];
+    	if (!empty($plans['_rpt_recommended'])){
+    		$is_reco = $plans['_rpt_recommended'];
 
-		//Opening plan
-		if ($is_reco == true ){
-		    $reco = '<img class="rpt_recommended" src="' . plugins_url('img/rpt_recommended.png', __FILE__) . '"/>';
-		    $reco_class = 'rpt_recommended_plan';
-		} else if ($is_reco == false ) {
-		    $reco = '';
-		    $reco_class = '';
-		}
-	} else {
-		$reco = '';
-		$reco_class = '';
-	}
+    		//Opening plan
+    		if ($is_reco == true ){
+    		    $reco = '<img class="rpt_recommended" src="' . plugins_url('img/rpt_recommended.png', __FILE__) . '"/>';
+    		    $reco_class = 'rpt_recommended_plan';
+    		} else if ($is_reco == false ) {
+    		    $reco = '';
+    		    $reco_class = '';
+    		}
+    	} else {
+    		$reco = '';
+    		$reco_class = '';
+    	}
 
-	$output2 .= '<div class="rpt_plan  '.$ori_f.' rpt_plan_' . $key . ' ' . $reco_class . '">';
+    	$output2 .= '<div class="rpt_plan  '.$ori_f.' rpt_plan_' . $key . ' ' . $reco_class . '">';
 
-		// Title
-		if (!empty($plans['_rpt_title'])){
-			$output2 .= '<div class="rpt_title rpt_title_' . $key . '">';
+    		// Title
+    		if (!empty($plans['_rpt_title'])){
+    			$output2 .= '<div class="rpt_title rpt_title_' . $key . '">';
 
-			if (!empty($plans['_rpt_icon'])){
-				$output2 .= '<img height=30px width=30px src="' . $plans['_rpt_icon'] . '" class="rpt_icon rpt_icon_' . $key . '"/> ';
-			}
+    			if (!empty($plans['_rpt_icon'])){
+    				$output2 .= '<img height=30px width=30px src="' . $plans['_rpt_icon'] . '" class="rpt_icon rpt_icon_' . $key . '"/> ';
+    			}
 
-			$output2 .= $plans['_rpt_title'];
-			$output2 .= $reco . '</div>';
-		}
+    			$output2 .= $plans['_rpt_title'];
+    			$output2 .= $reco . '</div>';
+    		}
 
-		// Head
-		$output2 .= '<div class="rpt_head rpt_head_' . $key . '">';
+    		// Head
+    		$output2 .= '<div class="rpt_head rpt_head_' . $key . '">';
 
-			// Recurrence
-			if (!empty($plans['_rpt_recurrence'])){
-			    	$output2 .= '<div class="rpt_recurrence rpt_recurrence_' . $key . '">' . $plans['_rpt_recurrence'] . '</div>';
-			}
+    			// Recurrence
+    			if (!empty($plans['_rpt_recurrence'])){
+    			    	$output2 .= '<div class="rpt_recurrence rpt_recurrence_' . $key . '">' . $plans['_rpt_recurrence'] . '</div>';
+    			}
 
-			// Price
-			if (!empty($plans['_rpt_price'])){
+    			// Price
+    			if (!empty($plans['_rpt_price'])){
 
-			    $output2 .= '<div class="rpt_price rpt_price_' . $key . '">';
+    			    $output2 .= '<div class="rpt_price rpt_price_' . $key . '">';
 
-			    if (!empty($plans['_rpt_free'])){
-			    	if ($plans['_rpt_free'] == true ){
-			    		$output2 .= $plans['_rpt_price'];
-			    	} else {
-				    	$output2 .= '<span class="rpt_currency"></span>' . $plans['_rpt_price'];
-			    	}
-			    } else {
+    			    if (!empty($plans['_rpt_free'])){
+    			    	if ($plans['_rpt_free'] == true ){
+    			    		$output2 .= $plans['_rpt_price'];
+    			    	} else {
+    				    	$output2 .= '<span class="rpt_currency"></span>' . $plans['_rpt_price'];
+    			    	}
+    			    } else {
 
-			    	$currency = get_post_meta( $post->ID, '_rpt_currency', true );
+    			    	$currency = get_post_meta( $post->ID, '_rpt_currency', true );
 
-			    	if (!empty($currency)){
-			    		$output2 .= '<span class="rpt_currency">';
-			    		$output2 .= $currency;
-						$output2 .= '</span>';
-					}
+    			    	if (!empty($currency)){
+    			    		$output2 .= '<span class="rpt_currency">';
+    			    		$output2 .= $currency;
+    						$output2 .= '</span>';
+    					}
 
-			    	$output2 .= $plans['_rpt_price'];
+    			    	$output2 .= $plans['_rpt_price'];
 
-			    }
+    			    }
 
-			    $output2 .= '</div>';
-			}
+    			    $output2 .= '</div>';
+    			}
 
-			// Subtitle
-			if (!empty($plans['_rpt_subtitle'])){
-			    	$output2 .= '<div style="color:' . $plans['_rpt_color'] . ';" class="rpt_subtitle rpt_subtitle_' . $key . '">' . $plans['_rpt_subtitle'] . '</div>';
-			    }
+    			// Subtitle
+    			if (!empty($plans['_rpt_subtitle'])){
+    			    	$output2 .= '<div style="color:' . $plans['_rpt_color'] . ';" class="rpt_subtitle rpt_subtitle_' . $key . '">' . $plans['_rpt_subtitle'] . '</div>';
+    			    }
 
-			// Description
-			if (!empty($plans['_rpt_description'])){
-			    $output2 .= '<div class="rpt_description rpt_description_' . $key . '">' . $plans['_rpt_description'] . '</div>';
-			}
+    			// Description
+    			if (!empty($plans['_rpt_description'])){
+    			    $output2 .= '<div class="rpt_description rpt_description_' . $key . '">' . $plans['_rpt_description'] . '</div>';
+    			}
 
-		// Closing plan head
-		$output2 .= '</div>';
-
-
-		if (!empty($plans['_rpt_features'])){
+    		// Closing plan head
+    		$output2 .= '</div>';
 
 
-            $output2 .= '<div class="rpt_features rpt_features_' . $key . '">';
+    		if (!empty($plans['_rpt_features'])){
 
 
-			$string = $plans['_rpt_features'];
-			$stringAr = explode("\n", $string);
-			$stringAr = array_filter($stringAr, 'trim');
+                $output2 .= '<div class="rpt_features rpt_features_' . $key . '">';
 
-			$features = '';
 
-			foreach ($stringAr as $feature) {
-				$features[] .= strip_tags($feature,'<strong></strong><br><br/></br><img><a>');
-			}
+    			$string = $plans['_rpt_features'];
+    			$stringAr = explode("\n", $string);
+    			$stringAr = array_filter($stringAr, 'trim');
 
-			foreach ($features as $small_key => $feature){
-				if (!empty($feature)){
+    			$features = '';
 
-					$check = substr($feature, 0, 2);
-					if ($check == '-n') {
-						$feature = substr($feature, 2);
-						$check_color = '#bbbbbb';
-					} else {
-						$check_color = 'black';
-					}
+    			foreach ($stringAr as $feature) {
+    				$features[] .= strip_tags($feature,'<strong></strong><br><br/></br><img><a>');
+    			}
 
-					$output2 .= '<div style="color:' . $check_color . ';" class="rpt_feature rpt_feature_' . $key . '-' . $small_key . '">';
-					$output2 .= $feature;
-					$output2 .= '</div>';
+    			foreach ($features as $small_key => $feature){
+    				if (!empty($feature)){
 
-				}
-			}
+    					$check = substr($feature, 0, 2);
+    					if ($check == '-n') {
+    						$feature = substr($feature, 2);
+    						$check_color = '#bbbbbb';
+    					} else {
+    						$check_color = 'black';
+    					}
 
-			$output2 .= '</div>';
-		}
+    					$output2 .= '<div style="color:' . $check_color . ';" class="rpt_feature rpt_feature_' . $key . '-' . $small_key . '">';
+    					$output2 .= $feature;
+    					$output2 .= '</div>';
 
-		if (!empty($plans['_rpt_btn_text'])){
-			$btn_text =	$plans['_rpt_btn_text'];
-			if (!empty($plans['_rpt_btn_link'])){
-				$btn_link =	$plans['_rpt_btn_link'];
-			} else { $btn_link = '#'; }
-		} else {
-			$btn_text =	'';
-			$btn_link = '#';
-		}
+    				}
+    			}
 
-		// Link option
-		$newcurrentwindow = get_post_meta( $post->ID, '_rpt_open_newwindow', true );
-		if ($newcurrentwindow == 'newwindow'){
-			$link_behavior = 'target="_blank"';
-		} else {
-			$link_behavior = 'target="_self"';
-		}
+    			$output2 .= '</div>';
+    		}
 
-        // Check for custom button
-        if (!empty($plans['_rpt_btn_custom_btn'])){
-            $output2 .= '<div class="rpt_custom_btn" style="border-bottom-left-radius:5px; border-bottom-right-radius:5px; text-align:center; padding:16px 20px; background-color:'.$plans['_rpt_color'].'">';
-                $output2 .= do_shortcode($plans['_rpt_btn_custom_btn']);
-            $output2 .= '</div>';
-        } else {
-		  // Default footer
-            if (!empty($plans['_rpt_btn_text'])){
-		    $output2 .= '<a '. $link_behavior .' href="' . do_shortcode($btn_link) . '" style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
+    		if (!empty($plans['_rpt_btn_text'])){
+    			$btn_text =	$plans['_rpt_btn_text'];
+    			if (!empty($plans['_rpt_btn_link'])){
+    				$btn_link =	$plans['_rpt_btn_link'];
+    			} else { $btn_link = '#'; }
+    		} else {
+    			$btn_text =	'';
+    			$btn_link = '#';
+    		}
+
+    		// Link option
+    		$newcurrentwindow = get_post_meta( $post->ID, '_rpt_open_newwindow', true );
+    		if ($newcurrentwindow == 'newwindow'){
+    			$link_behavior = 'target="_blank"';
+    		} else {
+    			$link_behavior = 'target="_self"';
+    		}
+
+            // Check for custom button
+            if (!empty($plans['_rpt_btn_custom_btn'])){
+                $output2 .= '<div class="rpt_custom_btn" style="border-bottom-left-radius:5px; border-bottom-right-radius:5px; text-align:center; padding:16px 20px; background-color:'.$plans['_rpt_color'].'">';
+                    $output2 .= do_shortcode($plans['_rpt_btn_custom_btn']);
+                $output2 .= '</div>';
             } else {
-              $output2 .= '<a '. $link_behavior .' style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
+    		  // Default footer
+                if (!empty($plans['_rpt_btn_text'])){
+    		    $output2 .= '<a '. $link_behavior .' href="' . do_shortcode($btn_link) . '" style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
+                } else {
+                  $output2 .= '<a '. $link_behavior .' style="background:' . $plans['_rpt_color'] . '" class="rpt_foot rpt_foot_' . $key . '">';
+                }
+
+                $output2 .= do_shortcode($btn_text);
+
+    		  // Closing default footer
+    		  $output2 .= '</a>';
             }
 
-            $output2 .= do_shortcode($btn_text);
+        $output2 .= '</div>';
 
-		  // Closing default footer
-		  $output2 .= '</a>';
-        }
+    	}
 
-    $output2 .= '</div>';
+    	// Closing rpt_inner
+    	$output2 .= '</div>';
 
-	}
+    	// Closing rpt_container
+    	$output2 .= '</div>';
 
-	// Closing rpt_inner
-	$output2 .= '</div>';
+    	$output2 .= '<div style="clear:both;"></div>';
 
-	// Closing rpt_container
-	$output2 .= '</div>';
-
-	$output2 .= '<div style="clear:both;"></div>';
-
-  endforeach; wp_reset_postdata();
+        endforeach; wp_reset_postdata();
   return $output2;
 
 }
