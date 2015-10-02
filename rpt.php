@@ -6,7 +6,7 @@
  * Version: 4.2.1
  * Author: WP Darko
  * Author URI: http://wpdarko.com
- * Text Domain: responsive-pricing-table
+ * Text Domain: dk-pricr-responsive-pricing-table
  * Domain Path: /lang/
  * License: GPL2
  */
@@ -15,7 +15,7 @@
 // Loading text domain
 add_action( 'plugins_loaded', 'rpt_load_plugin_textdomain' );
 function rpt_load_plugin_textdomain() {
-  load_plugin_textdomain( 'responsive-pricing-table', FALSE, basename( dirname( __FILE__ ) ) . '/lang/' );
+  load_plugin_textdomain( 'dk-pricr-responsive-pricing-table', FALSE, basename( dirname( __FILE__ ) ) . '/lang/' );
 }
 
 
@@ -58,19 +58,19 @@ function add_admin_rpt_style() {
 add_action( 'init', 'register_rpt_type' );
 function register_rpt_type() {
 	$labels = array(
-		'name'               => __( 'Pricing Tables', 'responsive-pricing-table' ),
-		'singular_name'      => __( 'Pricing Table', 'responsive-pricing-table' ),
-		'menu_name'          => __( 'Pricing Tables', 'responsive-pricing-table' ),
-		'name_admin_bar'     => __( 'Pricing Table', 'responsive-pricing-table' ),
-		'add_new'            => __( 'Add New', 'responsive-pricing-table' ),
-		'add_new_item'       => __( 'Add New Pricing Table', 'responsive-pricing-table' ),
-		'new_item'           => __( 'New Pricing Table', 'responsive-pricing-table' ),
-		'edit_item'          => __( 'Edit Pricing Table', 'responsive-pricing-table' ),
-		'view_item'          => __( 'View Pricing Table', 'responsive-pricing-table' ),
-		'all_items'          => __( 'All Pricing Tables', 'responsive-pricing-table' ),
-		'search_items'       => __( 'Search Pricing Tables', 'responsive-pricing-table' ),
-		'not_found'          => __( 'No Pricing Tables found.', 'responsive-pricing-table' ),
-		'not_found_in_trash' => __( 'No Pricing Tables found in Trash.', 'responsive-pricing-table' )
+		'name'               => __( 'Pricing Tables', 'dk-pricr-responsive-pricing-table' ),
+		'singular_name'      => __( 'Pricing Table', 'dk-pricr-responsive-pricing-table' ),
+		'menu_name'          => __( 'Pricing Tables', 'dk-pricr-responsive-pricing-table' ),
+		'name_admin_bar'     => __( 'Pricing Table', 'dk-pricr-responsive-pricing-table' ),
+		'add_new'            => __( 'Add New', 'dk-pricr-responsive-pricing-table' ),
+		'add_new_item'       => __( 'Add New Pricing Table', 'dk-pricr-responsive-pricing-table' ),
+		'new_item'           => __( 'New Pricing Table', 'dk-pricr-responsive-pricing-table' ),
+		'edit_item'          => __( 'Edit Pricing Table', 'dk-pricr-responsive-pricing-table' ),
+		'view_item'          => __( 'View Pricing Table', 'dk-pricr-responsive-pricing-table' ),
+		'all_items'          => __( 'All Pricing Tables', 'dk-pricr-responsive-pricing-table' ),
+		'search_items'       => __( 'Search Pricing Tables', 'dk-pricr-responsive-pricing-table' ),
+		'not_found'          => __( 'No Pricing Tables found.', 'dk-pricr-responsive-pricing-table' ),
+		'not_found_in_trash' => __( 'No Pricing Tables found in Trash.', 'dk-pricr-responsive-pricing-table' )
 	);
 
 	$args = array(
@@ -96,11 +96,11 @@ function rpt_updated_messages( $messages ) {
 	$post_type        = get_post_type( $post );
 	$post_type_object = get_post_type_object( $post_type );
 	$messages['rpt_pricing_table'] = array(
-		1  => __( 'Pricing Table updated.', 'responsive-pricing-table' ),
-		4  => __( 'Pricing Table updated.', 'responsive-pricing-table' ),
-		6  => __( 'Pricing Table published.', 'responsive-pricing-table' ),
-		7  => __( 'Pricing Table saved.', 'responsive-pricing-table' ),
-		10 => __( 'Pricing Table draft updated.', 'responsive-pricing-table' )
+		1  => __( 'Pricing Table updated.', 'dk-pricr-responsive-pricing-table' ),
+		4  => __( 'Pricing Table updated.', 'dk-pricr-responsive-pricing-table' ),
+		6  => __( 'Pricing Table published.', 'dk-pricr-responsive-pricing-table' ),
+		7  => __( 'Pricing Table saved.', 'dk-pricr-responsive-pricing-table' ),
+		10 => __( 'Pricing Table draft updated.', 'dk-pricr-responsive-pricing-table' )
 	);
 
 	if ( $post_type_object->publicly_queryable ) {
